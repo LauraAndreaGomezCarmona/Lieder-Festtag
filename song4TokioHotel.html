@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #a3d1fb, #d6d6d6);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 16px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 18px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(187, 186, 186);
+          border-radius: 50px;
+          color: black;
+        }
+          /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 40px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+      }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        .song{
+          font-size: 21px;
+        }
+    }
+    @media screen and (max-width: 600px){
+      section .content h1{
+            font-size: 38px;
+        }
+        .song{
+          font-size: 21px;
+        }
+      }
+      
+    </style>
+  </head>
+  
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Durch den Monsun</h1>
+    <h2>Von: / De: / By: Tokio Hotel</h2>
+      </div>
+    </section>
+    <br>
+    <iframe width="900" height="530" src="https://www.youtube.com/embed/xM2dOI_F7yM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br>
+    <p style="font-size: 23px; color: black;">YouTube Video / Video en YouTube / YouTube video : <a style="color: white; background: #a837e9; border:1px solid#a837e9;border-radius: 5px;padding: 4px;" href="https://youtu.be/ckKCBRxN2J0" target="_blank">Durch den Monsun</a></p>
+    <br><br>
+       <div class="container-song">
+        
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Durch den Monsun</strong></h6>
+            <br>
+            <p>Das Fenster öffnet sich nicht mehr</p>
+            <p>Hier drin' ist es voll von dir, und leer</p>
+            <p>Und vor mir geht die letzte Kerze aus</p>
+            <br>
+            <p>Ich warte schon 'ne Ewigkeit</p>
+            <p>Endlich ist es jetzt soweit</p>
+            <p>Da draußen ziehen die schwarzen Wolken auf</p>
+
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Ich muss durch den Monsun</p>
+            <p>Hinter die Welt</p>
+            <p>Ans Ende der Zeit</p>
+            <p>Bis kein Regen mehr fällt</p>
+            <p>Gegen den Sturm</p>
+            <p>Am Abgrund entlang</p>
+            <p>Und wenn ich nich' mehr kann, denk' ich daran</p>
+            <p>Irgendwann laufen wir zusammen</p>
+            <p>Durch den Monsun</p>
+            <p>Dann wird alles gut</p>
+            <br><br>
+            <p>Ein Halber Mond versinkt vor mir</p>
+            <p>War der eben noch bei dir</p>
+            <p>Und hält er wirklich was er mir verspricht</p>
+            <p>Ich weiß, dass ich dich finden kann</p>
+            <p>Hör' deinen Namen im Orkan (im Orkan) </p>
+            <p>Ich glaub' noch mehr dran glauben kann ich nicht</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Ich muss durch den Monsun</p>
+            <p>Hinter die Welt</p>
+            <p>Ans Ende der Zeit</p>
+            <p>Bis kein Regen mehr fällt</p>
+            <p>Gegen den Sturm</p>
+            <p>Am Abgrund entlang</p>
+            <p>Und wenn ich nich' mehr kann, denk' ich daran</p>
+            <p>Irgendwann laufen wir zusammen</p>
+            <p>Weil uns einfach nichts mehr halten kann</p>
+            <p>Durch den Monsun</p>
+            <br><br>
+            <p>Hey! (uuh) </p>
+            <p>Hey! (uuh) </p>
+            <br>
+            <p>Ich kämpf' mich durch die Mächte</p>
+            <p>Hinter dieser Tür</p>
+            <p>Werde sie besiegen und dann </p>
+            <p>ühren sie mich zu dir</p>
+            <br>
+            <p>Dann wird alles gut</p>
+            <p>Dann wird alles gut</p>
+            <p>Wird alles gut</p>
+            <p>Alles gut</p>
+
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Ich muss durch den Monsun</p>
+            <p>Hinter die Welt</p>
+            <p>Ans Ende der Zeit</p>
+            <p>Bis kein Regen mehr fällt</p>
+            <p>Gegen den Sturm</p>
+            <p>Am Abgrund entlang</p>
+            <p>Und wenn ich nich' mehr kann, denk' ich daran</p>
+            <p>Irgendwann laufen wir zusammen</p>
+            <p>Weil uns einfach nichts mehr halten kann</p>
+            <br><br>
+            <p>Durch den Monsun</p>
+            <p>Durch den Monsun (uuh) </p>
+            <p>Dann wird alles gut (uuh) </p>
+            <p>Durch den Monsun (uuh) </p>
+            <p>Dann wird alles gut (uuh) </p>
+        
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Through the Monsoon</strong></h6>
+            <br>
+            <p>La ventana ya no se abre</p>
+            <p>Aquí está lleno de ti y vacío</p>
+            <p>Y ante mí la última vela se apaga</p>
+            <br>
+            <p>He esperado una eternidad</p>
+            <p>Finalmente es el momento</p>
+            <p>Allá afuera se acumulan las nubes negras</p>
+
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tengo que pasar por el monzón</p>
+            <p>Detrás del mundo</p>
+            <p>Hasta el fin de los tiempos</p>
+            <p>Hasta que no caiga más lluvia</p>
+            <p>Contra la Tormenta</p>
+            <p>A lo largo del Abismo</p>
+            <p>Y cuando no puedo más, pienso en que</p>
+            <p>En algún momento, estaremos juntos</p>
+            <p>A través del monzón</p>
+            <p>Entonces todo estará bien</p>
+
+            <br><br>
+            <p>Media luna se hunde frente a mí</p>
+            <p>Estaba contigo hace un momento </p>
+            <p>Y cumple realmente lo que me promete </p>
+            <p>Sé que puedo encontrarte</p>
+            <p>Escucho tu nombre dentro del huracán</p>
+            <p>Creo que no podría, creer más en esto</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tengo que pasar por el monzón</p>
+            <p>Detrás del mundo</p>
+            <p>Hasta el fin de los tiempos</p>
+            <p>Hasta que no caiga más lluvia</p>
+            <p>Contra la Tormenta</p>
+            <p>A lo largo del Abismo</p>
+            <p>Y cuando no puedo más, pienso en que</p>
+            <p>En algún momento, estaremos juntos</p>
+            <p>Por que ya nada puede detenernos</p>
+            <p>A través del monzón</p>
+            <br><br>
+            <p>Oye! (uuh) </p>
+            <p>Oye! (uuh) </p>
+            <br>
+            <p>Lucho contra las fuerzas</p>
+            <p>Detrás de esta puerta</p>
+            <p>Serán derrotadas y </p>
+            <p>Me guíaran hacia ti</p>
+            <br>
+            <p>Entonces todo estará bien</p>
+            <p>Entonces todo estará bien</p>
+            <p>Todo estará bien</p>
+            <p>Todo bien</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tengo que pasar por el monzón</p>
+            <p>Detrás del mundo</p>
+            <p>Hasta el fin de los tiempos</p>
+            <p>Hasta que no caiga más lluvia</p>
+            <p>Contra la Tormenta</p>
+            <p>A lo largo del Abismo</p>
+            <p>Y cuando no puedo más, pienso en que</p>
+            <p>En algún momento, estaremos juntos</p>
+            <p>Por que ya nada puede detenernos</p>
+            <br><br>
+            <p>A través del monzón</p>
+            <p>A través del monzón</p>
+            <p>Entonces todo estará bien</p>
+            <p>A través del monzón</p>
+            <p>Entonces todo estará bien</p>
+            
+           </div>
+           
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Through the Monsoon</strong></h6>
+            <br>
+            <p>The window doesn’t open anymore</p>
+            <p>In here, it’s full of you and empty</p>
+            <p>And in front of me, the last candle goes out</p>
+            <br>
+            <p>I've been waiting here so long</p>
+            <p>But now the moment seems to have come </p>
+            <p>I see the dark clouds coming up again </p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Running through the monsoon</p>
+            <p>Beyond the world, </p>
+            <p>To the end of time, </p>
+            <p>Where the rain won't hurt</p>
+            <p>Fighting the storm </p>
+            <p>Into the blue </p>
+            <p>And when I lose myself I think of you</p>
+            <p>Together we'll be running somewhere new</p>
+            <p>Through the monsoon</p>
+            <p>Just me and you</p>
+            <br><br>
+            <p>A half moon's fading from my sight</p>
+            <p>I see your vision in its light</p>
+            <p>But now it's gone and left me so alone</p>
+            <p>I know I have to find you now</p>
+            <p>Can hear your name, I don't know how</p>
+            <p>Why can't we make this darkness feel like home? </p>
+
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Running through the monsoon</p>
+            <p>Beyond the world</p>
+            <p>To the end of time</p>
+            <p>Where the rain won't hurt</p>
+            <p>Fighting the storm</p>
+            <p>Into the blue</p>
+            <p>And when I lose myself I think of you</p>
+            <p>Together we'll be running somewhere new</p>
+            <p>And nothing can hold me back from you</p>
+            <p>Through the monsoon</p>
+            <br><br>
+            <p>Hey! </p>
+            <p>Hey! </p>
+            <br>
+
+            <p>I'm fighting all its power</p>
+            <p>Coming in my way</p>
+            <p>Let it take me straight to you</p>
+            <p>I'll be running night and day</p>
+            <br>
+            <p>I'll be with you soon</p>
+            <p>Just me and you</p>
+            <p>We'll be there soon</p>
+            <p>So soon</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Running through the monsoon</p>
+            <p>Beyond the world</p>
+            <p>To the end of time</p>
+            <p>Where the rain won't hurt</p>
+            <p>Fighting the storm</p>
+            <p>Into the blue</p>
+            <p>And when I lose myself I think of you</p>
+            <p>Together we'll be running somewhere new</p>
+            <p>And nothing can hold me back from you</p>
+            <br><br>
+            <p>Through the monsoon</p>
+            <p>Through the monsoon</p>
+            <p>Just me and you</p>
+            <p>Through the monsoon</p>
+            <p>Just me and you</p>
+
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

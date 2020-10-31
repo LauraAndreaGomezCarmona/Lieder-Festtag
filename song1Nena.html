@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+        margin: 0;
+        padding: 0;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #d9a7c7, #fffcdc);
+            letter-spacing: 0.6px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        p{
+          font-size: 17px;
+        }
+        
+        h5{
+          font-size: 24px;
+          margin-top: 10px;
+        }
+        h6{
+          font-size: 17px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+            padding: 0;
+            width: 100%;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0  0 50% 50%/ 0 0 100% 100%;
+            top: 0;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+            margin-top: 0;
+            padding: 0;
+            width: 100%;
+        }
+        section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 20px;
+          margin-bottom: 90px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background: rgb(102, 171, 250);
+          border-radius: 50px;
+          color: black;
+        }
+        
+       /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        margin: 0;
+        font-size: 23px;
+        text-align: center;
+        width: 100%;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 40px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        .song{
+        font-size: 21px;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 38px;
+        }
+      h2{
+        visibility: hidden;
+      }
+      .song{
+        font-size: 21px;
+        }
+    }
+    
+    </style>
+  </head>
+<body>
+     <!--Navigation Bar/ Barra de navegación-->
+     <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Irgendwie, irgendwo, irgendwann</h1>
+    <h2 style="font-size: 40px;">Von: / De: / By: NENA </h2>
+      </div>
+    </section>
+    <br>
+    <iframe width="900" height="530" style="margin: 0 auto;" src="https://www.youtube.com/embed/wBwMzY6a6_A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br><br>
+    <p style="font-size: 23px; color: black;">YouTube Video / Video en YouTube / YouTube video : <a style="color: white; background: #9d37af; border:1px solid #9d37af;border-radius: 5px;padding: 4px;" href="https://youtu.be/oMHLkcc9I9c" target="_blank">Irgendwie, irgendwie, irgendwann</a></p>
+       <br>
+       <div class="container-song">
+
+            <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Irgendwie, Irgendwo, Irgendwann</strong></h6>
+            <br>
+            <p>Im Sturz durch Raum und Zeit</p>
+            <p>Richtung Unendlichkeit</p>
+            <br>
+            <p>Fliegen Motten in das Licht</p>
+            <p>Genau wie du und ich</p>
+            <br>
+            <p>Irgendwie fängt irgendwann</p>
+            <p>Irgendwo die Zukunft an</p>
+            <p>Ich warte nicht mehr Lang</p>
+            <br>
+            <p>Liebe wird aus Mut gemacht</p>
+            <p>Denk nicht lange nach</p>
+            <p>Wir fahren auf Feuerrädern</p>
+            <p>Richtung Zukunft durch die Nacht</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Gib mir die Hand</p>
+            <p>Ich bau dir ein Schloss aus Sand</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <p>Die Zeit ist reif für ein bisschen Zärtlichkeit</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <br><br>
+            <p>Im Sturz durch Zeit und Raum</p>
+            <p>Erwacht aus einem Traum</p>
+            <br>
+            <p>Nur ein kurzer Augenblick</p>
+            <p>Dann kehrt die Nacht zurück</p>
+            <br>
+            <p>Irgendwie fängt irgendwann</p>
+            <p>Irgendwo die Zukunft an</p>
+            <p>Ich warte nicht mehr lang</p>
+            <br>
+            <p>Liebe wird aus Mut gemacht</p>
+            <p>Denk nicht lange nach</p>
+            <p>Wir fahren auf Feuerrädern</p>
+            <p>Richtung Zukunft durch die Nacht</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Gib mir die Hand</p>
+            <p>Ich bau dir ein Schloss aus Sand</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <p>Die Zeit ist reif für ein bisschen Zärtlichkeit</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Gib mir die Hand</p>
+            <p>Ich bau dir ein Schloss aus Sand</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <p>Die Zeit ist reif für ein bisschen Zärtlichkeit</p>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <br>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+            <br>
+            <p>irgendwie</p>
+            <p>irgendwo</p>
+            <p>irgendwann</p>
+           </div>
+
+            
+            <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>De alguna manera, en algún lugar, en algún momento</strong></h6>
+            <br>
+            <p>En la caída a través del espacio y el tiempo</p>
+            <p>Hacia el infinito</p>
+            <br>
+            <p>Las polillas vuelan directo a la luz</p>
+            <p>Al igual que tú y yo</p>
+            <br>
+            <p>De alguna manera en algún momento se empieza</p>
+            <p>En algún lugar en el futuro</p>
+            <p>No voy a esperar mucho tiempo</p>
+            <br>
+            <p>El amor está hecho de valentía</p>
+            <p>No lo pienses por mucho tiempo</p>
+            <p>Nos dirigimos sobre ruedas de fuego</p>
+            <p>Hacia el futuro a través de la noche</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Dame tu mano</p>
+            <p>Te construiré un castillo de arena</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <p>El momento es perfecto para un poco de ternura</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <br><br>
+            <p>En la caída a través del espacio y el tiempo</p>
+            <p>Despierta de un sueño</p>
+            <br>
+            <p>Solo un breve instante</p>
+            <p>Y luego regresa la noche</p>
+            <br>
+            <p>De alguna manera en algún momento se empieza</p>
+            <p>En algún lugar en el futuro</p>
+            <p>No voy a esperar mucho tiempo</p>
+            <br>
+            <p>El amor está hecho de valentía</p>
+            <p>No lo pienses por mucho tiempo</p>
+            <p>Nos dirigimos sobre ruedas de fuego</p>
+            <p>Hacia el futuro a través de la noche</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Dame tu mano</p>
+            <p>Te construiré un castillo de arena</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <p>El momento es perfecto para un poco de ternura</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Dame tu mano</p>
+            <p>Te construiré un castillo de arena</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <p>El momento es perfecto para un poco de ternura</p>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <br>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+            <br>
+            <p>De alguna manera</p>
+            <p>En algún lugar</p>
+            <p>En algún momento</p>
+           </div>
+
+            
+            <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Somehow, somewhere, sometime</strong></h6>
+            <br>
+            <p>In the fall through space and time</p>
+            <p>Towards infinity</p>
+            <br>
+            <p>Moths fly into the light</p>
+            <p>Just like you and me</p>
+            <br>
+            <p>Somehow sometime it starts</p>
+            <p>Somewhere in the future</p> 
+            <p>I do not wait much time</p>
+            <br>
+            <p>Love is made out of courage</p>
+            <p>Do not think about it for long</p>
+            <p>We drive on wheels of fire</p>
+            <p>Towards the future through the night</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Give me your hand</p>
+            <p>I will build you a castle made of sand</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <p>The time is perfect for a bit of tenderness</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <br><br>
+            <p>In the fall through space and time</p>
+            <p>Wakes up from a dream</p>
+            <br>
+            <p>Just a brief instant</p>
+            <p>And then the night comes back</p>
+            <br>
+            <p>Somehow sometime it starts</p>
+            <p>Somewhere in the future</p> 
+            <p>I do not wait much time</p>
+            <br>
+            <p>Love is made out of courage</p>
+            <p>Do not think about it for long</p>
+            <p>We drive on wheels of fire</p>
+            <p>Towards the future through the night</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Give me your hand</p>
+            <p>I will build you a castle made of sand</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <p>The time is perfect for a bit of tenderness</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Give me your hand</p>
+            <p>I will build you a castle made of sand</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <p>The time is perfect for a bit of tenderness</p>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <br>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+            <br>
+            <p>Somehow</p>
+            <p>Somewhere</p>
+            <p>Sometime</p>
+           
+          </div>
+
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

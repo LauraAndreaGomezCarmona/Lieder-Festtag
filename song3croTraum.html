@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #d4b4e9, #b7c8e9);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 16px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 18px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          height: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+
+        .container-song p:hover{
+          background:white;
+          border-radius: 50px;
+          color: black;
+        }
+         /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Traum</h1>
+    <h2>Von: / De: / By: CRO </h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/8WQMBv2deYQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br>
+    <p style="font-size: 23px; color: black;">YouTube Video / Video en YouTube / YouTube video : <a style="color: white; background: #e937d1; border:1px solid#e937d1;border-radius: 5px;padding: 4px;" href="https://youtu.be/8WQMBv2deYQ" target="_blank">Traum</a></p>
+    <br><br>
+       <div class="container-song">
+
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Traum</strong></h6>
+            <br>
+            <p>Yeah, Baby nimm' (nehmen) meine Hand</p>
+            <p>Ich hab alles schon gepackt</p>
+            <p>Komm wir beide gehen weg von hier</p>
+            <br>
+            <p>Sieh der Jet ist getankt</p>
+            <p>Ich hab Geld auf der Bank</p>
+            <p>Und noch jede Menge Plätze hier</p>
+            <br>
+            <p>Und immer wenn Du einsam bist</p>
+            <p>Komm' ich rum' </p>
+            <p>Du musst nie wieder alleine sein</p>
+            <br>
+            <p>Denn immer wenn ich Dich seh' (sehe) </p>
+            <p>Macht es in mir Tick Tick Boom</p>
+            <p>So wie Dynamite</p>
+            <br>
+            <p>Aha, und alle anderen Girls wären gern wie du</p>
+            <p>Aha, Denn du bist wunderschön</p>
+            <p>Und gefährlich klug</p>
+            <br>
+            <p>Ey jo! Und ich hoff' dass du mich siehst</p>
+            <p>Ich bin verliebt</p>
+            <p>Und hab kein' Plan ob es dich gibt</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Doch manchmal träum' ich nur von Dir</p>
+            <p>Bitte sag was muss ich tun</p> 
+            <p>dass Du mich hörst</p>
+            <p>Denn ich wär heut so gern bei dir</p>
+            <p>Und ich glaub ich fänd es cool </p>
+            <p>wenn du mir gehörst</p>
+            <br>
+            <p>Ich fühl mich so allein</p>
+            <p>Weiß nicht ob's dich gibt</p>
+            <p>Und egal wie laut ich schrei</p> 
+            <p> sie hört mich nicht</p>
+            <p>sie ist grade irgendwo </p>
+            <p>und denkt vielleicht an mich</p>
+            <br>
+            <p>Hey Baby bitte schreib wenn es dich gibt! </p>
+            <br>
+            <p>Jeden Tag unterwegs und ich seh' viele Girls</p>
+            <p>Aber Baby ey ich find dich nicht</p>
+            <p>Und es gibt so viele Girls</p>
+            <p>Die behaupten sie wärn Du</p>
+            <p>Doch ich sage man das stimmt doch nicht</p>
+            <br>
+            <p>Doch ich hab echt kein Plan und ich frag mich</p>
+            <p>ob Du überhaupt meine Sprache sprichst</p>
+            <br>
+            <p>Doch Du bist eine von denen</p>
+            <p>die man nicht suchen darf, </p>
+            <p>sondern irgendwann mal auf der Straße trifft</p>
+            <br>
+            <p>Aha, und Baby ich schrieb jedes Lied für dich</p>
+            <p>Aha, doch bin alleine denn sie sieht mich nicht</p>
+            <p>Aha, ich hoff' dass es geschieht</p>
+            <p>Ich bin verliebt</p>
+            <p>Doch hab kein' Plan ob es Dich gibt</p>
+
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Doch manchmal träum' ich nur von Dir</p>
+            <p>Bitte sag was muss ich tun</p> 
+            <p>dass Du mich hörst</p>
+            <p>Denn ich wär heut so gern bei dir</p>
+            <p>Und ich glaub ich fänd es cool </p>
+            <p>wenn du mir gehörst</p>
+            <br>
+            <p>Ich fühl mich so allein</p>
+            <p>Weiß nicht ob's dich gibt</p>
+            <p>Und egal wie laut ich schrei</p> 
+            <p> sie hört mich nicht</p>
+            <p>sie ist grade irgendwo </p>
+            <p>und denkt vielleicht an mich</p>
+            <br>
+            <p>Hey Baby bitte schreib wenn es dich gibt! </p>
+            <br><br>
+            <p>Baby warte nicht so lange</p>
+            <p>Denn ich bin nicht gerne alleine</p>
+            <p>Und bemerke jede Nacht </p>
+            <p>Mein Bett ist zu groß</p>
+            <br>
+            <p>Deshalb hätt' ich gerne dich an meiner Seite</p>
+            <p>Ich kann nur noch an dich denken</p>
+            <p>Man es lässt mich einfach nicht los</p>
+            <br>
+            <p>Und wenn du mich da draußen grade hörst</p>
+            <p>Dann bitte warte kurz auf mich</p>
+            <p>Ich bin direkt bereit und fahr los</p>
+            <br>
+            <p>Doch wenn nicht, gehe ich einsam ins Bett</p>
+            <p>Und hoff' das ich gleich wieder penn'</p>
+            
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Doch manchmal träum' ich nur von Dir</p>
+            <p>Bitte sag was muss ich tun</p> 
+            <p>dass Du mich hörst</p>
+            <p>Denn ich wär heut so gern bei dir</p>
+            <p>Und ich glaub ich fänd es cool </p>
+            <p>wenn du mir gehörst</p>
+            <br>
+            <p>Ich fühl mich so allein</p>
+            <p>Weiß nicht ob's dich gibt</p>
+            <p>Und egal wie laut ich schrei</p> 
+            <p> sie hört mich nicht</p>
+            <p>sie ist grade irgendwo </p>
+            <p>und denkt vielleicht an mich</p>
+            <br>
+            <p>Hey Baby bitte schreib wenn es dich gibt! </p>
+
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>SUEÑO</strong></h6>
+            <br>
+            <p> Sí, cariño, toma mi mano </p>
+            <p> Ya empaqué todo </p>
+            <p> Vamos, salgamos los dos lejos de aquí </p>
+            <br>
+            <p>Mira, el jet ya tiene el tanque lleno,</p>
+            <p> Tengo dinero en el banco </p>
+            <p>Y también muchos terrenos aquí</p>
+            <br>
+            <p>Y siempre que estés sola,</p>
+            <p>Vendré</p>
+            <p>Nunca más tienes que estar sola</p>
+            <br>
+            <p>Porque siempre que te veo</p>
+            <p>Mi corazón hace tic tac boom</p>
+            <p>Como dinamita</p>
+            <br>
+            <p>Ajá, y a todas las otras chicas les gustaría ser como tú</p>
+            <p>Ajá, Porque eres maravillosa</p>
+            <p>Y peligrosamente inteligente</p>
+            <br>
+            <p>¡Ey yo! y espero que me veas</p>
+            <p>Estoy enamorado</p>
+            <p>Y no tengo ningún plan, si es que existes</p>
+
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Por que a veces solo sueño contigo</p>
+            <p>Por favor, dime qué tengo que hacer </p>
+            <p>para que me escuches</p>
+            <p>Porque me gustaría estar contigo hoy</p>
+            <p> Y creo que sería genial </p>
+            <p> Si eres mía </p>
+            <br>
+            <p> Me siento tan solo </p>
+            <p> No sé si existes</p>
+            <p> Y no importa lo fuerte que grite, </p>
+            <p> Ella no me escucha </p>
+            <p>Pero ella está en alguna parte</p>
+            <p>Y tal vez piense en mí </p>
+            <br>
+            <p> ¡Oye cariño, por favor escribe si es que existes! </p>
+            <br>
+            <p>Cada día, veo a muchas chicas</p>
+            <p> Pero cariño, no puedo encontrarte </p>
+            <p>Y hay tantas chicas</p>
+            <p>Que afirman ser tú </p>
+            <p>Pero yo digo: "¡no, eso no es cierto!"</p>
+            <br>
+            <p>Pero no tengo ningún plan, y me pregunto</p>
+            <p>Si tú en realidad hablas mi idioma</p>
+            <br>
+            <p>Pero tu eres una de esas</p>
+            <p>Que no se deben buscar</p>
+            <p>Sino que en algún momento uno se encuentra por la calle</p>
+            <br>
+            <p>Ajá y cariño, yo escribo cada canción para ti</p>
+            <p>Ajá, pero estoy solo porque ella no me ve </p>
+            <p> Ajá, espero que suceda</p> 
+            <p>Estoy enamorado</p>
+            <p>Y no tengo ningún plan, si es que existes</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Por que a veces solo sueño contigo</p>
+            <p>Por favor, dime qué tengo que hacer </p>
+            <p>para que me escuches</p>
+            <p>Porque me gustaría estar contigo hoy</p>
+            <p> Y creo que sería genial </p>
+            <p> Si eres mía </p>
+            <br>
+            <p> Me siento tan solo </p>
+            <p> No sé si existes</p>
+            <p> Y no importa lo fuerte que grite, </p>
+            <p> Ella no me escucha </p>
+            <p>Pero ella está en alguna parte</p>
+            <p>Y tal vez piense en mí </p>
+            <br>
+            <p> ¡Oye cariño, por favor escribe si es que existes! </p>
+            
+            <br><br>
+            <p>Cariño, no esperes tanto</p>
+            <p>Que no me gusta estar solo</p>
+            <p>Y cada noche me doy cuenta de que</p>
+            <p>mi cama es demasiado grande</p>
+            <br>
+            <p>Por eso me gustaría tenerte a mi lado</p>
+            <p>Solo puedo pensar en ti </p>
+            <p>¡Es que no puedo evitarlo!</p>
+            <br>
+            <p>Y si me oyes ahí fuera</p>
+            <p>Entonces por favor, espérame un momento</p>
+            <p>Me preparo y salgo</p>
+            <br>
+            <p> Pero si no, me iré a la cama solo </p>
+            <p> Y espero volver a dormirme pronto </p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Por que a veces solo sueño contigo</p>
+            <p>Por favor, dime qué tengo que hacer </p>
+            <p>para que me escuches</p>
+            <p>Porque me gustaría estar contigo hoy</p>
+            <p> Y creo que sería genial </p>
+            <p> Si eres mía </p>
+            <br>
+            <p> Me siento tan solo </p>
+            <p> No sé si existes</p>
+            <p> Y no importa lo fuerte que grite, </p>
+            <p> Ella no me escucha </p>
+            <p>Pero ella está en alguna parte</p>
+            <p>Y tal vez piense en mí </p>
+            <br>
+            <p> ¡Oye cariño, por favor escribe si es que existes! </p>
+            <br>
+           </div>
+           
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Dream</strong></h6>
+            <br>
+            <p>Yeah, baby, take my hand</p>
+            <p>I have already packed everything</p>
+            <p>Come on, let's get away from here </p>
+            <br>
+            <p>Look, the jet's tank is filled</p>
+            <p>I have money in the bank</p>
+            <p>And also many places here</p>
+            <br>
+            <p>And whenever you are lonely</p>
+            <p>I will come to you</p>
+            <p>You don't ever have to be alone again</p>
+            <br>
+            <p>Because every time I see you</p>
+            <p>My heart goes tic tic boom</p>
+            <p>Like dynamite</p>
+            <br>
+            <p>Ah, and all the other girls want to be like you</p>
+            <p>Ah, because you are beautiful </p>
+            <p>And dangerously clever</p>
+            <br>
+            <p>Ey yo, and I hope you see me</p>
+            <p>I'm in love</p>
+            <p>And I don't know if you exist</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> But sometimes I dream of you</p>
+            <p>Please tell me, what do I have to do</p>
+            <p>For you to hear me</p>
+            <p>Because I would love to be with you today</p>
+            <p> And I think, it would be cool</p>
+            <p>If you are mine</p>
+            <br>
+            <p> I feel so alone </p>
+            <p> I don't know if you exist </p>
+            <p> And no matter how loud I scream,</p>
+            <p>she doesn't hear me </p>
+            <p> But she's somewhere right now</p>
+            <p>And maybe she thinks about me</p>
+            <br>
+            <p> ¡Hey baby please write if you exist! </p>
+            <br>
+            <p> Every day I'm out there, and I see many girls</p>
+            <p> But baby, I can't find you</p>
+            <p> And there are so many girls</p>
+            <p> Claiming to be you</p>
+            <p> But I say "Man, that's not true!" </p>
+            <br>
+            <p> But I really don't know what to do, and I wonder</p>
+            <p> If you speak my language at all</p>
+            <br>
+            <p> But you are one of those persons</p>
+            <p> One that you can't look for</p>
+            <p> But you can meet sometime on the street </p>
+            <br>
+            <p> Ah, and baby I wrote every song for you </p>
+            <p> Ah, but I'm alone because she doesn't see me </p>
+            <p> Ah, I hope it happens</p>
+            <p>I'm in love </p>
+            <p>And I don't know if you exist</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> But sometimes I dream of you</p>
+            <p>Please tell me, what do I have to do</p>
+            <p>For you to hear me</p>
+            <p>Because I would love to be with you today</p>
+            <p> And I think, it would be cool</p>
+            <p>If you are mine</p>
+            <br>
+            <p> I feel so alone </p>
+            <p> I don't know if you exist </p>
+            <p> And no matter how loud I scream,</p>
+            <p>she doesn't hear me </p>
+            <p> But she's somewhere right now</p>
+            <p>And maybe she thinks about me</p>
+            <br>
+            <p> ¡Hey baby please write if you exist! </p>
+            <br><br>
+            <p>Baby, don't wait too long</p>
+            <p>I don't like to be alone</p>
+            <p>And every night I notice</p>
+            <p>my bed is too big</p>
+            <br>
+            <p>That's why I would love to have you by my side</p>
+            <p>I only can think about you </p>
+            <p>I just can not avoid it</p>
+            <br>
+            <p>And if you hear me out there</p>
+            <p>Please wait for me for a second</p>
+            <p>I will get ready and go for you! </p>
+            <br>
+            <p>But if not, I go to bed lonely again</p>
+            <p>And hope for falling asleep</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> But sometimes I dream of you</p>
+            <p>Please tell me, what do I have to do</p>
+            <p>For you to hear me</p>
+            <p>Because I would love to be with you today</p>
+            <p> And I think, it would be cool</p>
+            <p>If you are mine</p>
+            <br>
+            <p> I feel so alone </p>
+            <p> I don't know if you exist </p>
+            <p> And no matter how loud I scream,</p>
+            <p>she doesn't hear me </p>
+            <p> But she's somewhere right now</p>
+            <p>And maybe she thinks about me</p>
+            <br>
+            <p> ¡Hey baby please write if you exist! </p>
+
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

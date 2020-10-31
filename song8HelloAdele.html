@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #aedd95, #a3e2cf);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 17px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 17px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          width: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(229, 230, 229);
+          border-radius: 50px;
+          color: black;
+        }
+        /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Hello</h1>
+    <h2>Von: / De: / By: Adele</h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/YQHsXMglC9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br><br>
+       <div class="container-song">
+         
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Hallo</strong></h6>
+            <br>
+            <p>Hallo, Ich bin es</p>
+            <p>Ich habe mich gefragt</p>
+            <p>Ob nach all diesen Jahren</p>
+            <p>Möchtest du mit mir ausgehen</p>
+            <p>Um über alles zu sprechen</p>
+            <br>            
+            <p>Sie sagen, dass Zeit die Wunden heilt</p>
+            <p>Aber ich bin noch nicht wirklich geheilt</p>
+            <br>
+            <p>Hallo, kannst du mich hören?</p>
+            <p>Ich bin in Kalifornien und träume</p>
+            <p>Davon wer wir mal waren</p>
+            <p>Als wir jung und frei waren</p>
+            <br>
+            <p>Ich habe vergessen, wie es hat sich gefühlt</p>
+            <p>Bevor die Welt vor unsere Füße gefallen ist</p>
+            <p>Es gibt so einen Unterschied zwischen uns</p>
+            <p>Und eine Million Meilen</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Hallo von der anderen Seite</p>
+            <p>Ich habe bestimmt tausendmal angerufen</p>
+            <br>
+            <p>Um dir zu sagen es tut mir leid</p>
+            <p>Für alles was ich gemacht</p>
+            <p>Aber wenn ich anrufe </p>
+            <p>Scheinst du nie zuhause zu sein</p>
+            <br>
+            <p>Hallo von draußen</p>
+            <p>Zumindest kann ich sagen 
+            <p>Dass ich versucht habe</p>
+            <p>Dir zu sagen es tut mir leid</p>
+            <p>Dass ich dein Herz gebrochen habe</p>
+            <p>Aber egal, offensichtlich </p>
+            <p>Zerreißt es dich nicht mehr</p>
+            <br><br>
+            <p>Hallo, wie geht es dir?</p>
+            <p>Es ist so typisch von mir</p>
+            <p>Über mich selbst zu reden</p>
+            <p>Es tut mir leid</p>
+            <p>Ich hoffe es geht dir gut</p>
+            <p>Hast du es jemals aus dieser Stadt geschafft</p>
+            <p>Wo nie etwas passiert ist</p>
+            <br>
+            <p>Es ist kein Geheimnis</p>
+            <p>Wir beide</p>
+            <p>Haben nicht viel Zeit </p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Damit hallo von der anderen Seite </p>
+            <p>(Anderen Seite)</p>
+            <p>Ich habe bestimmt tausendmal angerufen </p>
+            <p>(Tausendmal)</p>
+            <br>
+            <p>Um dir zu sagen es tut mir leid</p>
+            <p>Für alles was ich gemacht</p>
+            <p>Aber wenn ich anrufe </p>
+            <p>Scheinst du nie zuhause zu sein</p>
+            <br>
+            <p>Hallo von draußen</p>
+            <p>Zumindest kann ich sagen 
+            <p>Dass ich versucht habe</p>
+            <p>Dir zu sagen es tut mir leid</p>
+            <p>Dass ich dein Herz gebrochen habe</p>
+            <p>Aber egal, offensichtlich </p>
+            <p>Zerreißt es dich nicht mehr</p>
+            <br><br>
+            <p>Ooooohh, nicht mehr</p>
+            <p>Ooooohh, nicht mehr</p>
+            <p>Ooooohh, nicht mehr</p>
+            <p>Anymore</p>
+            <br><br>
+            <p>Hallo von der anderen Seite</p>
+            <p>(Anderen Seite)</p>
+            <p>Ich habe bestimmt tausendmal angerufen </p>
+            <p>(Tausendmal)</p>
+            <br>
+            <p>Um dir zu sagen es tut mir leid</p>
+            <p>Für alles was ich gemacht</p>
+            <p>Aber wenn ich anrufe </p>
+            <p>Scheinst du nie zuhause zu sein</p>
+            <br>
+            <p>Hallo von draußen (draußen)</p>
+            <p>Zumindest kann ich sagen</p>
+            <p>dass ich versucht habe</p>
+            <p>Dir zu sagen es tut mir leid</p>
+            <p>Dass ich dein Herz gebrochen habe</p>
+            <p>Aber egal, offensichtlich </p>
+            <p>Zerreißt es dich nicht mehr</p>
+            
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Hola</strong></h6>
+            <br>
+            <p>Hola, soy yo</p>
+            <p>Me estaba preguntando</p>
+            <p>Si después de todos estos años</p>
+            <p>Te gustaría salir conmigo</p>
+            <p>Para hablar sobre todo</p>
+            <br>            
+            <p>Dicen que el tiempo te cura</p>
+            <p>Pero no ha curado mucho</p>
+            <br>
+            <p>Hola, puedes oírme?</p>
+            <p>Estoy en California soñando</p>
+            <p>Sobre quiénes solíamos ser</p>
+            <p>Cuando éramos jóvenes y libres</p>
+            <br>
+            <p>He olvidado como se sentía antes</p>
+            <p>De que el mundo cayerá a nuestros pies</p>
+            <p>Hay muchas diferencias entre nosotros</p>
+            <p>Y un millón de millas</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Hola desde el otro lado</p>
+            <p>Debo haberte llamado mil veces</p>
+            <br>
+            <p>Para decirte que lo siento</p>
+            <p>Por todo lo que he hecho</p>
+            <p>Pero cuando llamó</p>
+            <p>Parece que nunca estás en casa</p>
+            <br>
+            <p>Hola desde afuera</p>
+            <p>Al menos puedo decir 
+            <p>que he intentado</p>
+            <p>Decirte lo siento</p>
+            <p>Por romper tu corazón</p>
+            <p>Pero no importa, claramente</p>
+            <p>Eso ya no te afecta más</p>
+            <br><br>
+            <p>Hola, ¿Cómo estás?</p>
+            <p>Es tan típico de mí </p>
+            <p>Hablar sobre mí</p>
+            <p>Lo siento</p>
+            <p>Espero que estés bien</p>
+            <p>Alguna vez saliste de esa ciudad</p>
+            <p>Donde nunca pasa nada</p>
+            <br>
+            <p>No es un secreto</p>
+            <p>Que los dos</p>
+            <p>Nos estamos quedando sin tiempo</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Así que hola desde el otro lado</p>
+            <p>(Otro lado)</p>
+            <p>Debo haberte llamado mil veces </p>
+            <p>(Mil veces)</p>
+            <br>
+            <p>Para decirte que lo siento</p>
+            <p>Por todo lo que he hecho</p>
+            <p>Pero cuando llamó</p>
+            <p>Parece que nunca estás en casa</p>
+            <br>
+            <p>Hola desde afuera (afuera)</p>
+            <p>Al menos puedo decir</p>
+            <p>Que he intentado</p>
+            <p>Decirte lo siento</p>
+            <p>Por romper tu corazón</p>
+            <p>Pero no importa, claramente</p>
+            <p>Eso ya no te afecta más</p>
+            <br><br>
+            <p> Ooooohh, nunca más </p>
+            <p> Ooooohh, nunca más </p>
+            <p> Ooooohh, nunca más </p>
+            <p>Nunca más</p>
+            <br><br>
+            <p>Hola desde el otro lado</p>
+            <p>(Otro lado)</p>
+            <p>Debo haberte llamado mil veces </p>
+            <p>(Mil veces)</p>
+            <br>
+            <p>Para decirte que lo siento</p>
+            <p>Por todo lo que he hecho</p>
+            <p>Pero cuando llamó</p>
+            <p>Parece que nunca estás en casa</p>
+            <br>
+            <p>Hola desde afuera (afuera)</p>
+            <p>Al menos puedo decir</p>
+            <p>Que he intentado</p>
+            <p>Decirte lo siento</p>
+            <p>Por romper tu corazón</p>
+            <p>Pero no importa, claramente</p>
+            <p>Eso ya no te afecta más</p>
+            
+           </div>
+
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Hello</strong></h6>
+            <br>
+            <p>Hello, it's me</p>
+            <p>I was wondering </p>
+            <p>If after all these years </p>
+            <p>You'd like to meet</p>
+            <p>To go over everything</p>
+            <br>            
+            <p>They say that time's supposed to heal ya</p>
+            <p>But I ain't done much healing</p>
+            <br>
+            <p>Hello, can you hear me?</p>
+            <p>I'm in California dreaming </p>
+            <p>About who we used to be</p>
+            <p>When we were younger and free</p>
+            <br>
+            <p>I've forgotten how it felt before </p>
+            <p>The world fell at our feet</p>
+            <p>There's such a difference between us</p>
+            <p>And a million miles</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Hello from the other side</p>
+            <p>I must've called a thousand times</p>
+            <br>
+            <p>To tell you I'm sorry</p>
+            <p>For everything that I've done</p>
+            <p>But when I call </p>
+            <p>You never seem to be home</p>
+            <br>
+            <p>Hello from the outside</p>
+            <p>At least I can say </p>
+            <p>That I've tried</p>
+            <p>To tell you I'm sorry</p>
+            <p>For breaking your heart</p>
+            <p>But it don't matter, it clearly</p>
+            <p>Doesn't tear you apart anymore</p>
+            <br><br>
+            <p>Hello, how are you?</p>
+            <p>It's so typical of me </p>
+            <p>To talk about myself</p>
+            <p>I'm sorry</p>
+            <p>I hope that you're well</p>
+            <p>Did you ever make it out of that town</p>
+            <p>Where nothing ever happened?</p>
+            <br>
+            <p>It's no secret</p>
+            <p>That the both of us</p>
+            <p>Are running out of time</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>So hello from the other side</p>
+            <p>(Other side)</p>
+            <p>I must've called a thousand times</p>
+            <p>(Thousand times)</p>
+            <br>
+            <p>To tell you I'm sorry</p>
+            <p>For everything that I've done</p>
+            <p>But when I call </p>
+            <p>You never seem to be home</p>
+            <br>
+            <p>Hello from the outside (outside)</p>
+            <p>At least I can say </p>
+            <p>That I've tried</p>
+            <p>To tell you I'm sorry</p>
+            <p>For breaking your heart</p>
+            <p>But it don't matter, it clearly</p>
+            <p>Doesn't tear you apart anymore</p>
+            <br><br>
+            <p>Ooooohh, anymore</p>
+            <p>Ooooohh, anymore</p>
+            <p>Ooooohh, anymore</p>
+            <p>Anymore</p>
+            <br><br>
+            <p>Hello from the other side</p>
+            <p>(Other side)</p>
+            <p>I must've called a thousand times</p>
+            <p>(Thousand times)</p>
+            <br>
+            <p>To tell you I'm sorry</p>
+            <p>For everything that I've done</p>
+            <p>But when I call </p>
+            <p>You never seem to be home</p>
+            <br>
+            <p>Hello from the outside (outside)</p>
+            <p>At least I can say</p>
+            <p>That I've tried</p>
+            <p>To tell you I'm sorry</p>
+            <p>For breaking your heart</p>
+            <p>But it don't matter, it clearly</p>
+            <p>Doesn't tear you apart anymore</p>
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

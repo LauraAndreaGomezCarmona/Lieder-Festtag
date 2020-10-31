@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+   <style>
+          *{
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+          }
+        h2{
+            margin-top:20px;
+            margin-bottom: 0px;
+            font-size: 36px;
+        }
+      body{
+          font-family: arial, Roboto;
+          font-size: 19px;
+          text-align: center;
+          letter-spacing: 0.8px;
+          margin: 0;
+          padding: 0;
+          background:white;
+          width: 100%;
+          margin: 0 auto;
+       }
+      p{
+        font-family: arial, Roboto;
+        font-size: 25px;
+      }
+        .black-wave{
+        position: relative;
+        color:white;
+        background: linear-gradient(to right, #d44d78, #1d5bbe);
+        text-align: center;
+        width: 100%;
+        height: 610px;
+        background-blend-mode: screen;
+        margin: 0;
+      }
+      .black-wave .footer-text{
+        margin: 26px 0;
+        line-height: 40px;
+      }
+      .black-wave-content{
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .black-wave .footer-text img{
+        width: 15%;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .black-wave .footer-text p{
+        font-size: 21px;
+      }
+      .black-wave .loving{
+        width:90%;
+        margin: 50px;
+
+      }
+       
+      /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    /*Carrousel songs Lieder*/
+    .container{
+      width: 100%;
+    }
+      .content-carousel{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .content-carousel figure{
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .content-carousel figure p{
+        font-size: 12px;
+        text-align: center;
+        color:white;
+        margin: 5px;
+        margin-bottom: 0;
+        margin-top:5px;
+        line-height:15px;
+        letter-spacing: 1px;
+      }
+      .content-carousel figure button{
+        font-size: 9px;
+        text-align: center;
+        border: none;
+        color: white;
+        margin: 0;
+        margin-bottom: 5px;
+        margin-top: 3px;
+        padding: 0;
+        border-radius: 50px;
+        width: 115px;
+        height: 18px;
+        background:linear-gradient(to right, rgb(6, 107, 223),rgb(182, 26, 156));
+      }
+      .content-carousel figure button:active{
+        outline: 0;
+        border-radius: 50px;
+        border: none;
+      }
+      .content-carousel figure .capa{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        visibility: hidden;
+        opacity: 0;
+      }
+      .content-carousel figure:hover .capa{
+        visibility: visible;
+        opacity: 1;
+        background-color:rgba(97, 96, 96, 0.8);
+        image-rendering: optimizeQuality;
+      }
+    
+      .content-carousel figure img{
+        image-rendering:optimizeQuality;
+        transition: all 300ms;
+        width:  100%;
+        height: 100%;
+        margin-bottom: 10px;
+        transition: all 500ms ease-out;
+      }
+      .content-carousel:hover{
+        animation-play-state: paused;
+        cursor: pointer;
+        image-rendering: optimizeQuality;
+      }
+      .content-carousel figure{
+        width:209px;
+        height:170px;
+        border:0.5px solid rgb(167, 152, 152);
+        overflow: hidden;
+        position: absolute;
+        image-rendering: optimizeQuality;
+      }
+      .content-carousel figure:nth-child(1){
+        transform: rotateY(0deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(2){
+        transform: rotateY(40deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(3){
+        transform: rotateY(80deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(4){
+        transform: rotateY(120deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(5){
+        transform: rotateY(160deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(6){
+        transform: rotateY(200deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(7){
+        transform: rotateY(240deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(8){
+        transform: rotateY(280deg) translateZ(300px);
+      }
+      .content-carousel figure:nth-child(9){
+        transform: rotateY(320deg) translateZ(300px);
+      }
+      .content-carousel{
+        width: 100%;
+        position: absolute;
+        float:right;
+        animation: rotar 25s infinite linear;
+        transform-style: preserve-3d;
+      }
+      .content{
+        margin: auto;
+        width: 220px;
+        perspective: 560px;
+        position:relative;
+        padding-top: 60px;
+      }
+      .slideshow{
+        margin: 0 auto;
+        padding-top: 5px;
+        height: 500px;
+        margin-top: 5px;
+        width: 100%;
+      }
+      @keyframes rotar {
+        from{
+          transform:rotateY(0deg);
+        }to{
+          transform: rotateY(360deg);
+        }
+      }
+      .texto{
+          font-size: 12px;
+      }
+      audio{
+        width: 208px;
+        height: 23px;
+        font-size: 8px;
+        margin-top: 5px;
+      }
+      audio:active{
+        outline: none;
+        border:none;
+        border-radius: 50px;
+        border: 1px solid white;
+      }
+      
+      /*Serien section*/
+      .container-series{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        width: 100%;
+      }
+
+      .container-series .box{
+          margin: 0 auto;
+          position: relative; 
+          width:  560px;
+          height: 350px;
+          margin: 0 auto;
+          overflow: hidden;
+          transition: 0.5s;
+      }
+      .container-series .box:hover{
+        z-index: 1;
+        transform: scale(1.1);
+        box-shadow: 0 25px 40px rgba(245, 197, 40, 0.5);
+      }
+      .container-series .box .image-serie{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container-series .box .image-serie:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(180deg, rgb(204, 138, 32), rgb(42, 42, 42));
+        mix-blend-mode: multiply;
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      .container-series .box:hover .image-serie:before{
+        opacity: 1;
+      }
+      .container-series .box .dark{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: flex;
+        padding: 20px;
+        align-items: center;
+      }
+      .dark{
+        width: 100%;
+        margin: 0 auto;
+        text-align: justify;
+      }
+      .container-series .box .dark h3{
+        color: #fff;
+        transition: 0.5s;
+        font-size: 50px;
+        transform: translateY(200px);
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+      }
+      .container-series .box:hover .dark h3{
+        transform: translateY(0);
+        transition-delay: 0.6s;
+      }
+      .container-series .box .dark p{
+        color: #fff;
+        transform: translateY(200px);
+        transition: 0.5s;
+        font-size: 20px;
+      }
+      .container-series .box:hover .dark p{
+        transform: translateY(0);
+        transition-delay: 0.7s;
+      }
+
+      .container-series .box .dark button{
+        color: black;
+        background: white;
+        padding: 6px;
+        border-radius: 5px;
+        transition: 0.5s;
+        font-size: 17px;
+        transform: translateY(200px);
+        text-align: center;
+        margin-bottom: 10px;
+        margin: 0 10px;
+        border-top: 4px solid orange;
+        border-left: 4px solid orange;
+        border-right: 4px solid orange;
+        border-bottom: 4px solid orange;
+      }
+      .container-series .box:hover .dark button{
+        transform: translateY(0);
+        transition-delay: 0.8s;
+      }
+      .container-series .box .dark button:hover{
+        box-shadow: 0 25px 40px rgba(251, 157, 34, 0.5);
+        background: rgb(248, 158, 13);
+        color: white;
+      }
+      .container-series .box .dark button:active{
+        outline: none;
+        text-decoration: none;
+      }
+
+      .container-series .box .image-serie img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .side-to-side-end{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .side-to-side-end img{
+        width: 30%;
+      }
+
+      /*Contacto*/
+      .contacto{
+        background: #E9EAE7;
+        margin: 0 auto;
+        height: 560px;
+        width: 60%;
+      }
+     
+      .contacto .des{
+        color: black;
+        font-size: 24px;
+        margin: 0 auto;
+      }
+      .info{
+          display: flex;
+          justify-content: space-around;
+          align-items: flex-start;
+          background: #E9EAE7;
+          opacity: inherit;
+          margin: 0 auto;
+          height: 560px;
+          width: 100%;
+        }
+        .info img{
+          width: 35%;
+          margin-top: 0;
+          margin: 0 auto;
+        }
+        .info p{
+          margin-top: 15px;
+          font-size: 19px;
+          line-height: 18px;
+          color: black;
+        }
+      /*Social Media Kontaktiere uns*/
+      .social{
+        margin: 0 auto;
+        width: 100%;
+      }
+      .social body{
+        display: flex;
+        height: 400vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      .social a{
+        color:#4267B2;
+      }
+      .facebook :nth-child(1) a{
+        text-decoration: none;
+        color: #4267B2;
+      }
+      .instagram a{
+        text-decoration: none;
+        color: #E1306C ;
+      }
+      .linkedin a{
+        text-decoration: none;
+        color:#1DA1F2;
+      }
+      .whatsapp a{
+        text-decoration: none;
+        color: rgb(12, 194, 66);
+      }
+      .github a{
+        text-decoration: none;
+        color: rgb(102, 102, 102);
+      }
+      .social ul{
+        display: flex;
+        border-radius: 8px;
+        padding:20px;
+        justify-content: center;
+        margin: 40px;
+      }
+      .social ul li{
+        position: relative;
+        display: block;
+        color:black;
+        font-size: 30px;
+        height: 60px;
+        width: 60px;
+        background: white;
+        line-height: 60px;
+        border-radius: 50%;
+        margin: 0 15px;
+        align-items: center;
+        cursor: pointer;
+        transition: .5s;
+      }
+
+      .social ul li:before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        height: inherit;
+        width: inherit;
+        border-radius: 50%;
+        transform: scale(.9);
+        z-index: -1;
+        transition: .5s;
+      }
+        .social ul li:nth-child(1):before{
+        background: #4267B2;
+      }
+        .social ul li:nth-child(2):before{
+        background: #E1306C;
+      }
+      .social ul li:nth-child(3):before{
+        background: #1DA1F2;
+      }
+      .social ul li:nth-child(4):before{
+        background: rgb(12, 194, 66);
+      }
+      .social ul li:nth-child(5)::before{
+        background: rgb(102, 102, 102);
+      }
+      .social ul li:hover:before{
+        filter: blur(3px);
+        transform: scale(1.2);
+      }
+      .social ul li:nth-child(1):hover:before{
+        box-shadow: 0 0 15px #4267B2;
+      }
+      .social ul li:nth-child(1):hover:before{
+        box-shadow: 0 0 15px #4267B2;
+      }
+      .social ul li:nth-child(2):hover:before{
+        box-shadow: 0 0 15px #E1306C;
+      }
+      .social ul li:nth-child(3):hover:before{
+        box-shadow: 0 0 15px #1DA1F2;
+      }
+      .social ul li:nth-child(4):hover:before{
+        box-shadow: 0 0 15px rgb(12, 194, 66);
+      }
+      .social ul li:nth-child(5):hover::before{
+        box-shadow: 0 0 15px rgb(102, 102, 102);
+      }
+      .social ul li:nth-child(1):hover{
+        color: #456cba;
+        box-shadow: 0 0 15px #4267B2;
+        text-shadow: 0 0 15px #4267B2;
+      }
+      .facebook a:nth-child(1):hover{
+        color: #456cba;
+      }
+      .social ul li:nth-child(2):hover{
+        color: #e23670;
+        box-shadow: 0 0 15px #E1306C;
+        text-shadow: 0 0 15px #E1306C;
+      }
+      .instagram a:nth-child(2):hover{
+        color: #e23670;
+      }
+     .social ul li:nth-child(3):hover{
+        color: #26a4f2;
+        box-shadow: 0 0 15px#1DA1F2;
+        text-shadow: 0 0 15px #1DA1F2;
+      }
+      .social ul li:nth-child(4):hover{
+        color: rgb(16, 172, 16);
+        box-shadow: 0 0 15px rgb(12, 194, 66);
+        text-shadow: 0 0 15px rgb(12, 194, 66);
+      }
+      .social ul li:nth-child(5):hover{
+        color:rgb(102, 102, 102);
+        box-shadow: 0 0 15px rgb(102, 102, 102);
+        text-shadow: 0 0 15px rgb(102, 102, 102);
+      }
+      .media{
+        display: inline-flexbox;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        margin: 0 auto;
+      }
+      .media p{
+        line-height: 32px;
+      }
+      .media img{
+        border-radius: 50%;
+        width: 45%;
+        padding: 0 14px;
+      }
+      .copy{
+        font-size: 20px;
+      }
+      .contenedor{
+        display: inline-flex;
+        text-align: center;
+        justify-content: center;
+        margin-top: 0 auto;
+      }
+      .contenedor p{
+        font-size: 20px;
+        text-align: justify;
+      }
+      .introduccion{
+        padding: 25px;
+        padding-bottom: 8px;
+        margin: 25px;
+        margin-top: 0;
+        border: 1px solid lightgray;
+        border-right: 2px solid rgb(240, 83, 174);
+        border-bottom: 3px solid rgb(240, 83, 174);
+      }
+      .contenedor h2{
+        font-size: 30px;
+        margin-bottom: 22px;
+        margin-top: 6px;
+        line-height: 38px;
+      }
+      .lecciones{
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        align-items: center;
+      }
+      .lecciones .card{
+        box-shadow: 0 0 25px rgb(165, 165, 165);
+        border: 1px solid rgb(165, 165, 165);
+        margin: 0;
+      }
+      .lecciones .card img{
+        width: 100%;
+        height: 12em;
+      }
+      .lecciones .card-title{
+        color:black;
+        
+      }
+      .lecciones .card-body{
+        padding: 12px;
+        background:white;
+        margin: 0 auto;
+      }
+      .lecciones h4{
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 1px;
+      }
+      .lecciones .card-link{
+        background: rgb(11, 145, 235);
+        text-decoration: none;
+        font-size: 22px;
+        color:white;
+        width: 100%;
+      }
+      .lecciones .card-link:hover{
+        color:lightgray;
+      }
+      .lecciones .card-footer{
+        background:rgb(11, 145, 235);
+        margin: 0;
+        width: 100%;
+      }
+      .container-team .container{
+        display: inline-flex;
+        margin: 0 auto;
+      }
+        section{
+            position: relative;
+            width:100%;
+            height: 370px;
+            padding: 0;
+            background: linear-gradient(to right, #d44d78, #1d5bbe);
+            background-blend-mode: screen;
+            margin: 0;
+            text-align: center;
+        }
+        section .contenido h1{
+          font-size: 80px;
+          color:white;
+          text-align: center;
+          margin-top: 0;
+          padding: 60px;
+        }
+        section .contenido h2{
+            margin-top: 10px;
+            margin-bottom:0;
+            padding: 70px;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        .wave{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+        .side-to-side{
+          display:flex;
+          justify-content:space-around;
+          align-items:flex-start;
+        }
+        .side-to-side img{
+          width: 40%;
+        }
+        .side-music{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+        }
+        .side-music img{
+          width: 30%;
+        }
+        
+        .side-music p{
+          margin-top: 30px;
+          align-items: flex-end;
+        }
+        .text-music{
+          display: inline-flex;
+          text-align: center;
+          justify-content: center;
+          margin-top: 0 auto;
+          width: 100%;
+          padding: 0 auto;
+        }
+        .instruccion{
+          padding-right: 20px;
+          border-bottom: 3px solid rgb(223, 68, 158);
+          border-right: 2px solid rgb(223, 68, 158);
+          border-left: 1px solid lightgray;
+          border-top: 1px solid lightgray;
+          width: 100%;
+          margin: 16px;
+          margin-top: 0;
+          padding: 20px;
+        }
+        .instruccion p{
+          font-size: 19px;
+          letter-spacing: 1px;
+          line-height: 26px;
+          text-align: justify;
+        }
+        .morado {
+        border-right: 2px solid rgb(175, 71, 175);
+        border-bottom: 3px solid rgb(175, 71, 175);
+      }
+        .azul{
+        border-right: 2px solid rgb(76, 173, 230);
+        border-bottom: 3px solid rgb(76, 173, 230);
+      }
+      #f{
+        width: 88%;
+      }
+      #m{
+        width: 60%;
+      }
+      #a{
+        width: 50%;
+      }
+      /* Artista CRO*/
+      .box-cro{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .box-cro img{
+        padding: 0;
+        width: 50%;
+      }
+      .texto-cro p{
+        text-align: justify;
+        font-size: 19px;
+        line-height: 29px;
+        letter-spacing: 1px;
+      }
+      .texto-cro{
+        text-align: justify;
+        font-size: 19px;
+        line-height: 29px;
+        letter-spacing: 1px;
+      }
+      .texto-cro hr{
+        background: rgb(205, 44, 245);
+        width: 98%;
+      }
+      .box-cro .texto-cro{
+        padding: 40px;
+      }
+  
+
+      /* Artista NENA*/
+      .box-nena{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+      }
+      .box-nena img{
+        padding: 0;
+        width: 45%;
+      }
+      .box-nena .texto-nena{
+        padding: 40px;
+      }
+      .artistas{
+        width: 100%;
+      }
+      .artistas h2{
+        font-size: 80px;
+        margin-bottom: 40px;
+
+      }
+      .texto-nena p{
+        text-align: justify;
+        font-size: 19px;
+        line-height: 29px;
+        letter-spacing: 1px;
+      }
+      .texto-nena{
+        text-align: justify;
+        font-size: 19px;
+        line-height: 29px;
+        letter-spacing: 1px;
+      }
+      .texto-nena hr{
+        background: rgb(62, 162, 255);
+        width: 98%;
+      }
+
+      /* Móvil, tablet*/
+      @media screen and (max-width: 768px){
+        .lecciones .card{
+          margin: 40px 20px;
+         }
+        }
+      
+      @media screen and (max-width: 1195){
+        body{
+        letter-spacing: 0;
+        }
+      body{
+        letter-spacing: 0.5px;
+      }
+      }
+      
+      @media screen and (max-width: 1199px){
+        .contenedor{
+        display: block;
+        }
+        .instruccion{
+          margin: 0 auto;
+        }
+        .text-music{
+          margin: 0 auto;
+        }
+        .nav-item{
+          margin-left: 60px;
+        }
+      }
+      @media screen and (max-width: 1206px){
+        .instruccion{
+          font-size: 25px;
+          margin-bottom: 30px;
+        }
+      }
+      @media screen and (max-width: 1000px){
+        .text-music{
+          display: block;
+        }
+        .box-nena{
+          display: block;
+          font-size: 22px;
+        }
+        .box-cro{
+          display: block;
+          font-size: 22px;
+        }
+        .box-cro img,
+        .box-nena img{
+          width: 90%;
+        } 
+        
+      }
+      @media screen and (max-width:1140px) {
+        .container-series{
+          display: block;
+          width: 100%;
+          margin: 0 auto;
+        }
+        .image-serie{
+          margin:60px;
+        }
+        
+      }
+
+      @media screen and (max-width: 764spx) {
+
+        .image-serie{
+          margin:60px;
+        }
+        
+      }
+
+      @media screen and (max-width:590px) {
+        .slideshow{
+          width: 20%;
+        }
+        section .contenido h2{
+            margin-top: 10px;
+            margin-bottom:0;
+            padding: 70px;
+            font-size: 40px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        .black-wave{
+          font-size: 16px;
+        }
+        
+      }
+
+      @media screen and (max-width: 405px){
+        .instruccion{
+          font-size: 17px;
+          margin-bottom: 30px;
+        }
+      }
+      @media screen and (max-width: 390px){
+        .instruccion{
+          font-size: 17px;
+          margin-bottom: 60px;
+        }
+      }
+      @media screen and (max-width: 374px){
+        .instruccion{
+          font-size: 17px;
+          margin-bottom: 60px;
+          margin-top: 20px;
+        }
+      }
+      @media screen and (max-width: 374px){
+        .instruccion{
+          font-size: 17px;
+          margin-bottom: 75px;
+          margin-top: 20px;
+        }
+      }
+      @media screen and (max-width: 355px){
+        
+        .instruccion{
+          font-size: 16px;
+          margin-bottom: 96px;
+          margin-top: 50px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="main.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+    
+
+      <!--Introducción canciones-->
+      <section>
+        <div class="contenido">
+      <h1><strong>Lieder Festtag</strong></h1>
+      </div>
+        <svg class="wave"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      </section>
+        <div class="container">
+        <div class="contenedor">
+        <div class="introduccion">
+          <h2 style="color: rgb(223, 68, 158);">DEUTSCH / ALEMÁN / GERMAN</h2>
+          <p>Diese Website wurde erstellt, damit Sie neue Vokabeln lernen in <strong> Deutsch, Spanisch und Englisch </strong> 
+            und Spaß beim Lernen haben können! </p>
+        </div>
+        
+        <div class="introduccion morado">
+          <h2 style="color: rgb(187, 70, 187);">SPANISCH / ESPAÑOL / SPANISH</h2>
+        <p>Está página web fue creada para que aprendas nuevo vocabulario en <strong>alemán, español e inglés</strong>
+           y te diviertas mientras aprendes!</p>
+        </div>
+
+        <div class="introduccion azul">
+          <h2 style="color: rgb(62, 162, 219);">ENGLISCH / INGLÉS / ENGLISH</h2>
+        <p>This website was created for you to learn new vocabulary in <strong> German, Spanish and English</strong>
+          and have fun while you learn!</p>
+        </div>
+      </div>
+    </div>
+    <div class="side-to-side">
+      <img src="images/undraw_Imagination.png" alt="Nature" class="img-fluid" >
+      <img src="images/undraw_Tree_swing_646s.png" alt="Estudiar" class="img-fluid">
+    </div>
+        
+    <br><br>
+    
+      <section id="musica">
+        <div  class="contenido">
+        <h2>Lieder / Canciones / Songs</h2>
+        </div>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        </section>
+
+        <div class="container">
+
+        <div class="text-music">
+          <div class="instruccion">
+            <p>Musik hören ist eine der besten Möglichkeiten eine Sprache zu lernen. Und es macht auch sehr viel Spaß.</p>
+            <br>
+            <p>Das Hören von Liedern verbessert Ihren Wortschatz und hilft Ihnen, neue Sätze, Wörter und deren Kontext zu lernen.</p>
+            
+            <p>Aus diesem Grund habe ich ein musikalisches Roulette mit wirklich toll Lieder vorbereitet, damit Sie Deutsch, Spanisch und Englisch üben können</p>
+          </div>
+          <div class="instruccion morado">
+          <p>Escuchar música es una de las mejores maneras de aprender un idioma y además es muy divertida.</p>
+            <br>
+            <p>Escuchando canciones puedes mejorar tu vocabulario, aprender nuevas frases, palabras y su contexto.</p>
+            
+            <p>Por eso te he preparado una ruleta musical con canciones geniales para que practiques Alemán, Español e Inglés</p>
+          </div>
+          <div class="instruccion azul">
+          <p>Listening to music is one of the best ways to learn a language and it is also very fun.</p>
+            <br>
+            <p>Listening to songs improve your vocabulary, it helps you to learn new phrases, words and its context.
+            
+            <p>For this reason I have prepared a musical roulette with really cool songs for you to practice German, Spanish and English</p></p>
+          </div>
+        </div>
+        </div>
+
+        <br><br>
+
+        <p style="border-bottom: 2px solid rgb(223, 68, 158);" id="f">Wählen Sie ein Lied nach dem Zufallsprinzip aus und klicken Sie auf die Schaltfläche „Hören"</p>
+        <p style="border-bottom: 2px solid  rgb(187, 70, 187);" id= "m">Escoje al azar una canción que te guste y presiona escuchar</p>
+        <p style="border-bottom: 2px solid  rgb(62, 162, 219);" id="a">Pick a song randomly and clic in the listen button</p>
+  
+        <!-- Carousel 3D-->
+    <div class="slideshow">
+        <div class="content">
+          <div class="content-carousel">
+            
+            <figure><img src="images/wenn sie tanzt.PNG" alt="song2MaxGiesinger">
+              <div class="capa">
+                <audio src="audio/Max Giesinger - Wenn sie tanzt (Offizielles Video)-320k.mp3" controls></audio>
+                <p style="font-size: 14px; color: rgb(0, 204, 255);">Wenn sie tanzt</p>
+                <p>Cuando ella baila</p>
+                <p>When she dances</p>
+                <p style="color: rgb(0, 204, 255);">von: / de: / by: Max Giesinger</p>
+                <a href="song2MaxGiesinger.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+            </figure>
+ 
+            <figure class="shadow"><a href="song1Nena.html"><img src="images/nena,irgendwie,irgendwo,irgendwann.png" alt="Canción de NENA" class="img-fluid"></a>
+              <div class="capa">
+                <audio src="audio/Nena - Irgendwie, irgendwo, irgendwann (1984)-320k.mp3" controls></audio>
+                <p style="font-size: 12px; line-height: 10px; color: rgb(0, 204, 255);">Irgendwie, Irgendwo, Irgendwann</p>
+                <p style="line-height: 10px;">De alguna manera, en algún lugar, en algún momento</p>
+                <p style="line-height: 10px;">Somehow, somewhere, sometime</p>
+                <p style="color: rgb(0, 204, 255); line-height: 10px;">von: / de: / by: NENA</p>
+                <a href="song1Nena.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/traum.PNG" alt="Canción Traum de CRO" class="img-fluid">
+              <div class="capa">
+                <audio src="audio/Traum-320k.mp3" controls></audio>
+                <p style="font-size: 14px; color: rgb(0, 204, 255);">Traum</p>
+                <p>Sueño</p>
+                <p>Dream</p>
+                <p style="color: rgb(0, 204, 255); ">von: / de: / by: CRO</p>
+                <a href="song3croTraum.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/durch den Monsun.PNG" alt="Canción durch den Monsun" class="img-fluid">
+              <div class="capa">
+                <audio src="audio/Tokio Hotel - Durch den Monsun lyrics-320k.mp3" controls></audio>
+                  <p style="font-size: 14px; color: rgb(0, 204, 255);">Durch den Monsun</p>
+                  <p>A través del monzón</p>
+                  <p>Through the monsoon</p>
+                  <p style="color: rgb(0, 204, 255);">von: / de: / by: Tokio Hotel</p>
+                  <a href="song4TokioHotel.html"><button>Hören / Escuchar / Listen</button></a>
+                </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/Teil von Mir.PNG" alt="Canción de silbermond" class="img-fluid">
+              <div class="capa">
+                 <audio src="audio/Teil von Mir (Una parte de mí) - Silbermond-320k.mp3" controls></audio>
+                  <p style="font-size: 14px; color: rgb(0, 204, 255);">Teil von Mir</p>
+                  <p>Parte de mi</p>
+                  <p>Part of me</p>
+                  <p style="color: rgb(0, 204, 255);">von: / de: / by: Silbermond</p>
+                  <a href="song5Silbermond.html"><button>Hören / Escuchar / Listen</button></a>
+                </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/einmal um die Welt.PNG" alt="Einmal um die Welt Canción de CRO" class="img-fluid">
+              <div class="capa">
+                <audio src="audio/Cro - Einmal um die Welt-320k.mp3" controls></audio>
+                <p style="font-size: 14px; color: rgb(0, 204, 255);">Einmal um die Welt</p>
+                <p>Una vez alrededor del mundo</p>
+                <p>Once around the world</p>
+                <p style="color: rgb(0, 204, 255);">von: / de: / by: CRO</p>
+                <a href="song6Einmal um die Welt.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/Pullover wetter.PNG" alt="Sweater weather" class="img-fluid"> 
+              <div class="capa">
+                <audio src="audio/The Neighbourhood - Sweater Weather-320k.mp3" controls></audio> 
+                  <p style="font-size: 14px; color: rgb(0, 204, 255);">Pullover Wetter</p>
+                  <p>Clima de suéter</p>
+                  <p>Sweater weather</p>
+                  <p style="font-size:10px; color: rgb(0, 204, 255);">von: / de: / by: the Neighbourhood</p>
+                  <a href="song7Pullover wetter.html"><button>Hören / Escuchar / Listen</button></a>
+                </div>
+            </figure>
+
+            <figure class="shadow"><img src="images/AdeleHello.jpg" alt="hello de Adele" class="img-fluid">
+              <div class="capa">
+                <audio src="audio/Hello Adele.mp3" controls></audio> 
+                <p style="font-size: 14px; color: rgb(0, 204, 255);">Hallo</p>
+                <p>Hola</p>
+                <p>Hello</p>
+                <p style="color: rgb(0, 204, 255);">von: / de: / by: Adele</p>
+                <a href="song8HelloAdele.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+          </figure>
+
+            <figure class="shadow"><img src="images/völlig losgelöst.PNG" alt="Coming home Major Tom" class="img-fluid">
+              <div class="capa">
+                <audio src="audio/Major Tom-Völlig losgelöst-320k.mp3" controls></audio> 
+                <p style="font-size: 14px; color: rgb(0, 204, 255);">Völlig losgelöst</p>
+                <p>Completamente separado</p>
+                <p>Completely separate</p>
+                <p style="color: rgb(0, 204, 255);">von: / de: / by: Peter Schilling</p>
+                <a href="song9völlig losgelöst.html"><button>Hören / Escuchar / Listen</button></a>
+              </div>
+            </figure>
+            
+          </div>
+        </div>
+      </div>
+      <div class="side-music">
+        <img src="images/undraw_listening.png" alt="Nature"  class="img-fluid">
+        <div>
+        <p>Vergiss nicht, alle Songs anzuhören</p>
+        <p>No olvides escuchar todas las canciones</p>
+        <p>Do not forget to listen all the songs</p>
+      </div>
+        <img src="images/undraw_walk_in_the_city_1ma6.png" alt="Escuchar" class="img-fluid">
+      </div>
+
+        <br>
+        <section id="artist">
+          <div class="contenido">
+        <h2>Künstler / Artistas / Artist</h2>
+        </div>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        </section>
+        <div class="artistas">
+        <h2>CRO</h2>
+        <div class="box-cro">
+          <img src="images/cro.PNG" alt="cantante CRO" class="img-fluid">
+          <div class="texto-cro">
+          <p> Cro ist ein deutscher Pop-Rap-Künstler und Songwriter unter anderem.
+              <br>
+              Sein Name ist Carlo Waibel.
+              <br>
+              Er bezeichnet seine Musik als eine Mischung aus Rap und
+              <br>
+              Popmusik, was er mit dem Begriff „Raop“ abkürzt. 
+              <br>
+              Sein Markenzeichen ist eine Pandamaske.
+              <hr>
+              Cro es un artista alemán de pop-rap y compositor entre otras cosas.
+              <br>
+              Su nombre es Carlo Waibel.
+              <br>
+              Describe su música como una mezcla de rap y
+              <br>
+              Pop, que abrevia con el término "Raop".
+              <br>
+              Su marca registrada es una máscara de panda.
+              <hr>
+              Cro is a German pop-rap artist and songwriter amongst other things.
+              <br>
+              His name is Carlo Waibel.
+              <br>
+              He describes his music as a mixture between rap and
+              <br>
+              Pop music, which he abbreviates with the term "Raop".
+              <br>
+              His trademark is a panda mask.
+              </p>
+          </div>
+        </div>
+        <br>
+
+        <div class="side-to-side-end" style="width: 100%;">
+          <img src="images/undraw_celebration_0jvk.png" alt="Series" class="img-fluid">
+          <img src="images/undraw_To_the_stars_qhyy.png" alt="Series" class="img-fluid">
+          </div>
+        
+        <h2>NENA</h2>
+        <div class="box-nena">
+        <div class="texto-nena">
+            <p>Nena war eine deutsche Musikgruppe, die von 1982 bis 1987 bestand.
+            <br>
+            Die Sängerin der Gruppe heißt Gabriele Susanne Kerner.
+            <br>
+            Ihr größter, weltweiter Erfolg war das Lied 99 Luftballons.
+            <hr>
+            Nena fue un grupo de música alemán, que existió desde 1982 hasta 1987.
+            <br>
+            La cantante del grupo se llama Gabriele Susanne Kerner.
+            <br>
+            Su mayor éxito mundial fue la canción 99 Luftballons.
+            <hr>
+            Nena was a German music group that existed from 1982 to 1987.
+            <br>
+            The singer of the group is called Gabriele Susanne Kerner.
+            <br>
+            Its biggest worldwide hit was the song 99 Luftballons.</p>
+        </div>
+
+          <img src="images/NENA.PNG" alt="Cantante banda NENA" class="img-fluid">
+
+        </div>
+        
+      </div>
+        <br><br>
+        <section id="basico">
+
+        <div class="contenido">
+        <h2 style="font-size: 40px;">Sprachgrundlagen / Conceptos básicos del idioma / Language basics</h2>
+        </div>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        
+        </section>
+        <br><br><br>
+
+        <div class="lecciones">
+        <div class="container">
+          <div class="row">
+
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="images/Pronombres.PNG" class="img-fluid">
+             </div>
+             <div class="card-body">
+             <h4 class="card-title">Die Personalpronomen /</h4>
+             <h4>Pronombres personales /</h4> <h4>Personal pronouns</h4>
+             </div>
+             <div class="card-footer">
+              <a href="https://www.alemansencillo.com/pronombres-en-aleman" target="_blank" class="card-link">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="images/numbers.PNG" class="img-fluid">
+             </div>
+             <div class="card-body">
+                <h4 class="card-title">Die Zahlen /</h4>
+                <h4>Los números /</h4> <h4>The numbers</h4>
+             </div>
+             <div class="card-footer">
+              <a href="https://www.deutsch-mit-anna.de/grammatik/zeichen/deutsche-zahlen/" class="card-link" target="_blank">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="images/sentimientos.PNG" class="img-fluid">
+             </div>
+             <div class="card-body">
+             <h4 class="card-title">Die Gefühle /</h4> 
+             <h4>Los sentimientos / </h4> 
+             <h4>The feelings</h4>
+             </div>
+             <div class="card-footer">
+              <a href="https://www.babbel.com/en/magazine/feelings-in-german" class="card-link" target="_blank">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+         <!--<div class="container">
+          <div class="row">
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="Imagenes/camino.jpg" class="img-fluid">
+             </div>
+             
+             <div class="card-body">
+             <h5 class="card-title">Grammatikstrukturen / Estructuras gramaticales / Grammar structures</h5>
+             </div>
+             <div class="card-footer">
+              <a href="" class="card-link">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="Imagenes/patron-geometrico-gratis.png" class="img-fluid">
+             </div>
+             
+             <div class="card-body">
+                <h4 class="card-title">Die Verben / Los verbos / The verbs</h4>
+             </div>
+             <div class="card-footer">
+              <a href="" class="card-link">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+           <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="card">
+             <div class="card-img">
+              <img src="Imagenes/teilvonmir.png" class="img-fluid">
+             </div>
+             
+             <div class="card-body">
+             <h4 class="card-title">Fragen / Preguntas / Questions</h4>
+             </div>
+             <div class="card-footer">
+              <a href="" class="card-link">Lernen / Aprender / Learn</a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+      </section>-->
+      <br><br>
+        <section id="serie">
+          <div class="contenido">
+        <h2 style="font-size: 45px;">Serien / Series / Series</h2>
+      </div>
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      </section>
+
+      <div class="container-series">
+        <div class="box">
+          <div class="image-serie">
+            <img src="images/dark jonas und matha.png" class="img-fluid">
+          </div>
+          <div class="dark">
+            <div>
+            <h3>DARK</h3>
+               <p>Dark ist eine Serie über Zeitreisen</p>
+               <p>Dark es una serie sobre viajes en el tiempo</p>
+               <p>Dark is a serie about time travels</p>
+               <span><a href="https://dark.netflix.io/de" target="_blank"><button>Lern mehr</button></a>
+                <a href="https://dark.netflix.io/es" target="_blank"><button>Conocer más</button></a>
+                <a href="https://dark.netflix.io/en" target="_blank"><button>Learn more</button></a></span>
+            </div>
+          </div>
+        </div>
+
+      <div class="box">
+        <div class="image-serie">
+          <img src="images/Extra.PNG" class="img-fluid">
+        </div>
+        <div class="dark">
+          <div>
+          <h3>EXTRA</h3>
+            <p>Extra ist eine Serie zum Deutschlernen</p>
+            <p>Extra es una serie para aprender español</p>
+            <p>Extra is a serie to learn english</p>
+            <span><a href="https://youtu.be/iGovllrEsF8" target="_blank"><button>Deutsch</button></a>
+            <a href="https://youtu.be/Dfb9-ZTCA-E" target="_blank"><button>Spanisch</button></a>
+            <a href="https://youtu.be/k89GF-i_Eyg" target="_blank"><button>Englisch</button></a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-to-side-end">
+    <img src="images/undraw_netflix_q00o.png" alt="Series" class="img-fluid">
+    <img src="images/undraw_home_cinema_l7yl.png" alt="Series" class="img-fluid">
+    </div>
+      <!--<div class="filme">
+        <h3 class="text-center" id="movies">Top 3 Filme</h3>
+        <div class="container">  
+          <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12">
+         <img src="images/dasExperiment.jpg" class="img-fluid">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+         <img src="images/Biss zum Morgengrauen.jpg" class="img-fluid">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+         <img src="images/Vier zauberhafte Schwestern.jpg" class="img-fluid">
+        </div>
+       </div>
+      </div>
+    </div>-->
+    <br><br>
+    
+    <section id="contacto">
+      <div class="contenido">
+    <h2>kontakt / Contacto / Contact</h2>
+      </div>
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#E9EAE7" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </section>
+        <!-- Contacto -->
+
+    <div class="info">
+      
+      <div class="contacto">
+          <img src="images/foto.png" class="img-fluid" alt="team">
+          <br><br>
+        <div class="des">
+            Laura Andrea Gómez Carmona
+        </div>
+          <span class="text-muted"><p>Luftfahrtingenieurin und junior Front-end-Entwicklerin</p></span>
+          <span class="text-muted"><p>Ingeniera Aeronáutica y desarrolladora Front-end junior</p></span>
+          <span class="text-muted"><p>Aeronautical Engineer & Junior Front-end Developer</p></span>
+      </div>
+
+      <div class="media">
+        <div class="social">
+          <p style="font-size: 30px;">Soziale Netzwerke / Redes sociales / Social networks</p>
+            <ul>
+              <li class="facebook"><a href="https://www.facebook.com/lau.agc/" target="_blank" ><i class="fa fa-facebook-f"></i></a></li>
+              <li class="instagram"><a href="https://www.instagram.com/laura_andrea_carmona/?hl=es-la" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/in/laura-andrea-g%C3%B3mez-carmona-651a0aa0/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=573183737200&text=Hola%2C%20te%20gusto%20mi%20p%C3%A1gina%20web%20Lieder%20Festtag!" target="_blank"><i class="fa fa-whatsapp"></i></li></a>
+              <li class="github"><a href="https://github.com/LauraAndreaGomezCarmona" target="_blank" ><i class="fa fa-github"></i></a></li>
+            </ul>
+            <img src="images/hermosura.PNG" alt="Merlina, la perrita más hermosa" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <section class="black-wave">
+      <div class="black-wave-content">
+        <div class="loving">
+      <img src="images/undraw_LovingIt.png" alt="Loving it"  class="img-fluid">
+        </div>
+
+      <div class="footer-text">
+      <p>&copy; 2020 Lieder Festtag! </p>
+      <p class="copy">Erstellt von: / Creado por: / Created by: Laura Andrea Gómez Carmona</p>
+      <p>Besonderer Dank an / Agradecimientos especiales a / Special thanks to:</p>
+      <p>TechLabs, Edyoucated and FreeCodeCamp</p>
+      <span><a href="https://www.techlabs.org/" target="_blank"><img src="images/techLabs.PNG" alt="TechLabs" class="img-fluid"></a></span>
+      <span><a href="https://edyoucated.org/" target="_blank"><img src="images/edyoucated.PNG" alt="Edyoucated" class="img-fluid"></a></span>
+      <span><a href="https://www.freecodecamp.org/" target="_blank"><img src="images/codecamp.PNG" alt="FreeCodeCamp" class="img-fluid"></a></span>
+      </div>
+    </div>
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,96L48,90.7C96,85,192,75,288,112C384,149,480,235,576,256C672,277,768,235,864,192C960,149,1056,107,1152,112C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+   </section>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

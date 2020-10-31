@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #98aad8, #90c8e6, #82c0e2,#98aad8);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 17px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 17px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          width: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(54, 144, 204);
+          border-radius: 50px;
+          color: black;
+        }
+          /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Völlig losgelöst</h1>
+    <h2>Von: / De: / By: Peter Schilling (Major Tom)</h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/IyIUwdcspDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br><br>
+       <div class="container-song">
+
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Völlig losgelöst</strong></h6>
+            <br>
+            <p>Gründlich durchgecheckt</p>
+            <p>Steht sie da</p>
+            <p>Und wartet auf den Start</p>
+            <p>Alles klar</p>
+            <br>
+            <p>Experten streiten sich</p>
+            <p>Um ein paar Daten</p>
+            <p>Die Crew hat dann noch</p>
+            <p>Ein paar Fragen, doch</p>
+            <br>
+            <p>Der Countdown läuft</p>
+            <br>
+            <p>Effektivität</p>
+            <p>Bestimmt das Handeln</p>
+            <p>Man verlässt sich blind</p>
+            <p>Auf den andern</p>
+            <br>
+            <p>Jeder weiß genau</p>
+            <p>Was von ihm abhängt</p>
+            <p>Jeder ist im Stress</p>
+            <p>Doch Major Tom</p>
+            <p>Macht einen Scherz</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Dann hebt er ab und</p>
+            <br>
+            <p>Völlig losgelöst</p>
+            <p>Von der Erde</p>
+            <p>Schwebt das Raumschiff</p>
+            <p>Völlig schwerelos</p>
+            <br><br>
+            <p>Die Erdanziehungskraft</p>
+            <p>Ist überwunden</p>
+            <p>Alles läuft perfekt</p>
+            <p>Schon seit Stunden</p>
+            <br>
+            <p>Wissenschaftliche experimente</p>
+            <p>Doch was nützen die</p>
+            <p>Am Ende</p>
+            <p>Denkt sich Major Tom</p>
+            <br>
+            <p>Im Kontrollzentrum</p>
+            <p>Da wird man panisch</p>
+            <p>Der Kurs der Kapsel der</p>
+            <p>Stimmt ja gar nicht</p>
+            <br>
+            <p>Hallo, Major Tom</p>
+            <p>Können Sie hören?</p>
+            <p>Wollen Sie das Projekt</p>
+            <p>Denn so zerstören?</p>
+            <p>Doch, er kann nichts hören</p>
+            <p>Er schwebt weiter</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Völlig losgelöst</p>
+            <p>Von der Erde</p>
+            <p>Schwebt das Raumschiff</p>
+            <p>Völlig schwerelos</p>
+            <br><br>
+            <p>Die Erde schimmert blau</p>
+            <p>Sein letzter Funk kommt</p>
+            <p>Grüsst mir meine Frau!</p>
+            <p>Und er verstummt</p>
+            <br>
+            <p>Unten trauern noch</p>
+            <p>Die Egoisten</p>
+            <p>Major Tom denkt sich</p>
+            <br>
+            <p>Wenn die wüssten</p>
+            <p>Mich führt hier ein Licht</p>
+            <p>Durch das All</p>
+            <br>
+            <p>Das kennt ihr noch nicht</p>
+            <p>Ich komme bald</p>
+            <p>Mir wird kalt</p>
+
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Völlig losgelöst</p>
+            <p>Von der Erde</p>
+            <p>Schwebt das Raumschiff</p>
+            <p>Völlig schwerelos</p>
+            <br>
+            <p>Völlig losgelöst</p>
+            <p>Von der Erde</p>
+            <p>Schwebt das Raumschiff</p>
+            <p>Völlig schwerelos</p>
+            <br>
+            <p>Völlig losgelöst</p>
+            <p>Von der Erde</p>
+            <p>Schwebt das Raumschiff</p>
+            <p>Völlig schwerelos</p>
+           </div>
+           
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Completamente separado</strong></h6>
+            <br>
+            <p>Todo está totalmente revisado</p>
+            <p>Parado allí</p>
+            <p>Esperando el inicio</p>
+            <p>Todo esta bien</p>
+            <br>
+            <p>Los expertos discuten </p>
+            <p>Sobre algunos datos </p>
+            <p>La tripulación todavía tiene </p>
+            <p>Algunas preguntas, pero </p>
+            <br>
+            <p>La cuenta regresiva empieza</p>
+            <br>
+            <p>La efectividad</p>
+            <p>Condiciona la maniobra</p>
+            <p>Él confía ciegamente</p>
+            <p>En los demás</p>
+            <br>
+            <p>Todos saben bien</p>
+            <p>Lo que supone para él</p>
+            <p>Todos están estresados</p>
+            <p>Pero el comandante Tom</p>
+            <p>Hace una broma</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Después despega y</p>
+            <br>
+            <p>Completamente separado</p>
+            <p>De la tierra</p>
+            <p>La nave espacial flota</p>
+            <p>Completamente sin gravedad</p>
+            <br><br>
+            <p>La gravedad de la tierra</p>
+            <p>Es superada</p>
+            <p>Todo va perfecto</p>
+            <p>Desde hace horas</p>
+            <br>
+            <p>Experimentos científicos</p>
+            <p>Pero, para qué sirven</p>
+            <p>Al final</p>
+            <p>Piensa el comandante Tom</p>
+            <br>
+            <p>En el centro de control</p>
+            <p>Entran en pánico</p>
+            <p>El curso de la cápsula</p>
+            <p>No es el correcto</p>
+            <br>
+            <p>Hola, comandante Tom</p>
+            <p>¿Puede escucharnos?</p>
+            <p>Quiere en verdad</p>
+            <p>Destruir el proyecto?</p>
+            <p>Pero, él no puede oír nada</p>
+            <p>Él sigue flotando</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Completamente separado</p>
+            <p>De la tierra</p>
+            <p>La nave espacial flota</p>
+            <p>Completamente sin gravedad</p>
+            <br><br>
+            <p>La tierra brilla un poco azul</p>
+            <p>Su última transmisión</p>
+            <p>Saludos a mi esposa!</p>
+            <p>Y él se queda en silencio</p>
+            <br>
+            <p>Abajo todavía lloran</p>
+            <p>Los egoístas</p>
+            <p>El comandante Tom piensa</p>
+            <br>
+            <p>Si supieran</p>
+            <p>Una luz me guía</p>
+            <p>A través del universo</p>
+            <br>
+            <p>Aún no lo saben</p>
+            <p>Volveré pronto</p>
+            <p>Tengo frío</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Completamente separado</p>
+            <p>De la tierra</p>
+            <p>La nave espacial flota</p>
+            <p>Completamente sin gravedad</p>
+            <br>
+            <p>Completamente separado</p>
+            <p>De la tierra</p>
+            <p>La nave espacial flota</p>
+            <p>Completamente sin gravedad</p>
+            <br>
+            <p>Completamente separado</p>
+            <p>De la tierra</p>
+            <p>La nave espacial flota</p>
+            <p>Completamente sin gravedad</p>
+            
+           </div>
+
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Completely separate</strong></h6>
+            <br>
+            <p>Everything is checked</p>
+            <p>He is standing there alone</p>
+            <p>The ship is waiting</p>
+            <p>Everything is fine</p>
+            <br>
+            <p>The experts discuss</p>
+            <p>About some data</p>
+            <p>The crew still have</p>
+            <p>Some questions, but</p>
+            <br>
+            <p>The countdown starts</p>
+            <br>
+            <p>Effectiveness</p>
+            <p>Conditions the maneuver</p>
+            <p>He blindly trusts</p>
+            <p>In the others</p>
+            <br>
+            <p>Everyone knows well</p>
+            <p>What is means to him</p>
+            <p>Everyone is stressed</p>
+            <p>But Major Tom</p>
+            <p>Makes a joke</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Then the ship takes off and</p>
+            <br>
+            <p>Completely separate</p>
+            <p>From the earth</p>
+            <p>Floating</p>
+            <p>Weightless</p>
+            <br><br>
+            <p>The gravity of the earth</p>
+            <p>Is exceeded</p>
+            <p>Everything is going perfect</p>
+            <p>From some hours</p>
+            <br>
+            <p>Scientific experiments</p>
+            <p>But, what are they for?</p>
+            <p>At the end</p>
+            <p>Thinks Major Tom</p>
+            <br>
+            <p>In the control center</p>
+            <p>Starts the panic</p>
+            <p>The rocket path</p>
+            <p>Is wrong</p>
+            <br>
+            <p>Hello, Major Tom</p>
+            <p>Are you receiving?</p>
+            <p>The project begins</p>
+            <p>To fall apart</p>
+            <p>But, he can not hear nothing at all</p>
+            <p>He keeps floating</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Completely separate</p>
+            <p>From the earth</p>
+            <p>Floating</p>
+            <p>Weightless</p>
+            <br><br>
+            <p>The earth shines blue</p>
+            <p>A final message</p>
+            <p>Give my wife my love!</p>
+            <p>Then nothing more</p>
+            <br>
+            <p>Down there they still cry</p>
+            <p>The selfish</p>
+            <p>Thinks Major Tom</p>
+            <br>
+            <p>They do not realize</p>
+            <p>Now the light commands</p>
+            <p>Across the universe</p>
+            <br>
+            <p>They still do not know</p>
+            <p>I am coming home</p>
+            <p>I am cold</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Completely separate</p>
+            <p>From the earth</p>
+            <p>Floating</p>
+            <p>Weightless</p>
+            <br>
+            <p>Completely separate</p>
+            <p>From the earth</p>
+            <p>Floating</p>
+            <p>Weightless</p>
+            <br>
+            <p>Completely separate</p>
+            <p>From the earth</p>
+            <p>Floating</p>
+            <p>Weightless</p>
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

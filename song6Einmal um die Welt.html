@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right,#69c9d6, #8cd9ec);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 17px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 17px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          height: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(236, 238, 238);
+          border-radius: 50px;
+          color: black;
+        }
+          /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+  <!--Navigation Bar/ Barra de navegación-->
+  <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+    <div class="container">
+    <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lieder
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Künstler
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Serien
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#serie">Series</a>
+            </div>
+          </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Kontakt
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </nav>
+</div>
+    
+  
+
+    <section>
+      <div class="content">
+    <h1>Einmal um die Welt</h1>
+    <h2>Von: / De: / By: CRO</h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/u2pySXCmwpc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br><br>
+       <div class="container-song">
+
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Einmal um die Welt</strong></h6>
+            <br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Baby bitte mach dir nie mehr Sorgen</p> 
+            <p>Um Geld</p>
+            <p>Gib mir nur deine Hand</p> 
+            <p>Ich kauf dir Morgen die Welt</p>
+            <br>
+            <p>Egal wohin du willst </p>
+            <p>Wir fliegen um die Welt</p>
+            <p>Hauen sofort wieder ab</p>
+            <p>Wenn es dir hier nicht gefällt</p>
+            <br><br>
+            <p>Süd, Ost, West oder Nord</p>
+            <br>
+            <p>Hab den Jackpot an Board</p>
+            <p>Will von hier über London</p>
+            <p>Direkt nach New York</p>
+            <br>
+            <p>Denn ab Heute leb' ich jeden</p>
+            <p>Tag als ob ich Morgen tot wäre</p>
+            <br>
+            <p>Laufe durch den Park und werfe</p>
+            <p>Mit Geld als ob es Brot wäre (YEAH)</p>
+            <br>
+            <p>Nur noch Kaviar Champagner oder Champus</p>
+            <p>Baby ich erfülle dir wirklich jeden Wunsch </p>
+            <p>Mit Handkuss</p>
+            <br>
+            <p>Frühstück in Paris und</p> 
+            <p>Danach joggen auf Hawaii</p>
+            <p>Und um das ganze noch zu toppen </p>
+            <p>Gehen wir shoppen in LA</p>
+            <br>
+            <p>Also pack dir deine Zahnbürste ein</p>
+            <p>Denn ab heute wirst du sein</p>
+            <p>Zu Hause an mehr als einem Ort</p>
+            <br><br>
+            <p>Mit meinem Babe in der Hand</p>
+            <p>Und 'nem Safe an der Wand</p>
+            <p>Können wir tun was wir wollen</p>
+            <p>Und das Leben ist noch lang</p>
+            <br>
+            <p>Also komm</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Baby bitte mach dir nie mehr Sorgen</p> 
+            <p>Um Geld</p>
+            <p>Gib mir nur deine Hand </p>
+            <p>Ich kauf dir Morgen die Welt</p>
+            <br>
+            <p>Egal wohin du willst </p>
+            <p>Wir fliegen um die Welt</p>
+            <p>Hauen sofort wieder ab</p>
+            <p>Wenn es dir hier nicht gefällt</p>
+            <br><br>
+            <p>Sie will Kreditkarten</p>
+            <p>Und meine Mietwagen</p>
+            <p>Sie will Designerschuhe und davon</p>
+            <p>Ganz schön Viel haben</p>
+            <p>Manolo Blahnik, Prada, Gucci, und Lacoste</p>
+            <br>
+            <p>Kein Problem dann kauf' ich halt</p>
+            <p>Für deine Schuhe gleich ein ganzes Schloss</p>
+            <p>Sie will in Geld baden</p>
+            <p>Und sie will Pelz tragen</p>
+            <p>Sie will schnell fahren</p>
+            <p>Einmal um die Welt fahren</p>
+            <br>
+            <p>Sie kann sich kaufen was sie wollte</p>
+            <p>Doch nie hatte</p>
+            <p>Denn ich hab jetzt die American Express und zwar </p>
+            <p>die schwarze</p>
+            <br>
+            <p>Also komm</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Baby bitte mach dir nie mehr Sorgen</p> 
+            <p>Um Geld</p>
+            <p>Gib mir nur deine Hand </p>
+            <p>Ich kauf dir Morgen die Welt</p>
+            <br>
+            <p>Egal wohin du willst </p>
+            <p>Wir fliegen um die Welt</p>
+            <p>Hauen sofort wieder ab</p>
+            <p>Wenn es dir hier nicht gefällt</p>
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Una vez alrededor del mundo</strong></h6>
+            <br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Cariño, por favor no te preocupes nunca más</p> 
+            <p>Por dinero</p>
+            <p>Sólo dame tu mano</p> 
+            <p>Que mañana te compraré el mundo</p>
+            <br>
+            <p>No importa a dónde quieras ir</p>
+            <p>Volaremos alrededor del mundo</p>
+            <p>Nos vamos de inmediato</p>
+            <p>Si no te gusta aquí</p>
+            <br><br>
+            <p>Vamos al sur, este, oeste o norte</p>
+            <br>
+            <p>Tengo el premio a bordo</p>
+            <p>Quiero viajar desde aquí sobre Londres</p>
+            <p> Directo a Nueva York</p>
+            <br>
+            <p>Porque desde hoy vivo cada día</p>
+            <p>Como si fuera el último</p>
+            <br>
+            <p>Y corro por el parque lanzando</p>
+            <p>Dinero como si fuera pan (SI)</p>
+            <br>
+            <p>Sólo caviar o champán burbujeante</p>
+            <p>Nena yo complazco todos tus deseos</p>
+            <p>Con un beso en la mano</p>
+            <br>
+            <p>Un desayuno en París y</p>
+            <p>Después trotar en Hawai</p>
+            <p>Y por si eso fuera poco</p>
+            <p>Vamos de compras a Los Ángeles</p>
+            <br>
+            <p>Así que empaca tu cepillo de dientes</p>
+            <p>Porque a partir de hoy estarás</p>
+            <p>En casa en más de un lugar</p>
+            <br><br>
+            <p>Con mi nena de la mano</p>
+            <p>Y una caja fuerte en la pared</p>
+            <p>Podemos hacer lo que queramos</p>
+            <p> Y la vida aún es larga </p>
+            <br>
+            <p>Así que vamos</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Cariño, por favor no te preocupes nunca más</p> 
+            <p>Por dinero</p>
+            <p>Sólo dame tu mano</p> 
+            <p>Que mañana te compraré el mundo</p>
+            <br>
+            <p>No importa a dónde quieras ir</p>
+            <p>Volaremos alrededor del mundo</p>
+            <p>Nos vamos de inmediato</p>
+            <p>Si no te gusta aquí</p>
+            <br><br>
+            <p>Ella quiere tarjetas de crédito</p>
+            <p>Y tambien mi coche</p>
+            <p>Quiere zapatos de diseñador y</p>
+            <p>De esos tener muchos</p>
+            <p>Manolo Blahnik, Prada, Gucci y Lacoste</p>
+            <br>
+            <p> No hay problema, entonces compraré </p>
+            <p>Para tus zapatos un castillo entero</p>
+            <p>Quiere bañarse en dinero</p>
+            <p>Y quiere usar pieles</p>
+            <p>Y conducir muy rápido</p>
+            <p>Y también viajar alrededor del mundo</p>
+            <br>
+            <p>Ahora ella puede comprar</p> 
+            <p>Lo que nunca tuvo</p>
+            <p>Porque ahora tengo la American Express</p>
+            <p>Y de las negras</p>
+            <br>
+            <p> Así que vamos </p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Cariño, por favor no te preocupes nunca más</p> 
+            <p>Por dinero</p>
+            <p>Sólo dame tu mano</p> 
+            <p>Que mañana te compraré el mundo</p>
+            <br>
+            <p>No importa a dónde quieras ir</p>
+            <p>Volaremos alrededor del mundo</p>
+            <p>Nos vamos de inmediato</p>
+            <p>Si no te gusta aquí</p>
+            
+           </div>
+
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Once around the world</strong></h6>
+            <br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Baby, please do not worry never again</p> 
+            <p>About money</p>
+            <p>Just give me your hand</p> 
+            <p>And tomorrow I will buy you the world</p>
+            <br>
+            <p>It does not matter where you want to go</p>
+            <p>We will fly around the world</p>
+            <p>We are leaving now</p>
+            <p>If you do not like it here</p>
+            <br><br>
+            <p>Let is go to south, east, west or north</p>
+            <br>
+            <p>I have the jackpot on board</p>
+            <p> I want to travel from here over London </p>
+            <p> Direct to New York </p>
+            <br>
+            <p>Because from now on I live every day</p>
+            <p>As if it were the last</p>
+            <br>
+            <p> And I run through the park throwing </p>
+            <p> Money as if it were bread (YES) </p>
+            <br>
+            <p> Just caviar or bubbly champagne </p>
+            <p> Baby I please all your wishes </p>
+            <p> With a kiss on the hand </p>
+            <br>
+            <p>Breakfast in Paris and </p>
+            <p>Then go jogging on Hawaii </p>
+            <p> And to still top all that off </p>
+            <p> Let is go shopping in L.A</p>
+            <br>
+            <p>so do not forget to pack your toothbrush</p>
+            <p>Because from today</p>
+            <p>Your house will be more than one place</p>
+            <br><br>
+            <p>With my babe hand in hand</p>
+            <p> And a safe on the wall </p>
+            <p>We can do what we want</p>
+            <p>And our lives are still long</p>
+            <br>
+            <p>So let's go</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Baby, please do not worry never again</p> 
+            <p>About money</p>
+            <p>Just give me your hand</p> 
+            <p>And tomorrow I will buy you the world</p>
+            <br>
+            <p>It does not matter where you want to go</p>
+            <p>We will fly around the world</p>
+            <p>We are leaving now</p>
+            <p>If you do not like it here</p>
+            <br><br>
+            <p> She wants credit cards </p>
+            <p> And also my car </p>
+            <p>She wants designer shoes and </p>
+            <p> Of those she wants to have many </p>
+            <p> Manolo Blahnik, Prada, Gucci and Lacoste </p>
+            <br>
+            <p> No problem, I will buy </p>
+            <p> For your shoes a whole castle </p>
+            <p>She wants to swim in money</p>
+            <p>And she wants to wear fur</p>
+            <p>She wants to drive fast</p>
+            <p>Drive around the world once</p>
+            <br>
+            <p>Now she can buy the stuff</p> 
+            <p>That she never had</p>
+            <p>Because now I have the American Express</p>
+            <p>The black one</p>
+            <br>
+            <p>So let's go</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>Baby, please do not worry never again</p> 
+            <p>About money</p>
+            <p>Just give me your hand</p> 
+            <p>And tomorrow I will buy you the world</p>
+            <br>
+            <p>It does not matter where you want to go</p>
+            <p>We will fly around the world</p>
+            <p>We are leaving now</p>
+            <p>If you do not like it here</p>
+            
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

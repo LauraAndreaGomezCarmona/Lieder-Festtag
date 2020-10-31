@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right, #66cbe4, #eaecc6);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 17px;
+          text-align: center;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 18px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          height: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          /*background: rgb(241, 105, 234);*/
+          background: rgb(5, 190, 214);
+          border-radius: 50px;
+          color: black;
+        }
+        
+        /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+  
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+
+    }
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+
+    </style>
+  </head>
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+    
+
+    <section>
+      <div class="content">
+    <h1>Wenn sie Tanzt</h1>
+    <h2>Von: / De: / By: Max Giesinger </h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/5PST7Ld4wWU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br><br><br>
+    <p style="font-size: 23px; color: black;">YouTube Video / Video en YouTube / YouTube video : <a style="color: white; background: #16a7eb; border:1px solid#2bc0e4;border-radius: 5px;padding: 4px;" href="https://youtu.be/5PST7Ld4wWU" target="_blank">Wenn sie tanzt</a></p>
+    <br><br>
+       <div class="container-song">
+
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Wenn sie tanzt</strong></h6>
+            <br>
+            <p>'Ne ganz normale fünfzig Stunden Woche</p>
+            <p>Heim kommen,</p>
+            <p>Und erst mal für die Kleinen kochen</p>
+            <p>Ist für sie ja kein Problem</p>
+            <p>Weil die Kids für sie an erster Stelle stehen</p>
+            <br>
+            <p>Sie fragt sich wie es gelaufen wäre</p>
+            <p>Ohne Kinder</p>
+            <p>Selber laufen lernen</p>
+            <p>Aber ihr Tag lässt keine Pause zu</p>
+            <p>Sie will träumen, macht die Augen zu</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Und wenn sie tanzt, ist sie wo anders</p>
+            <p>Für den Moment, dort wo sie will</p>
+            <p>Und wenn sie tanzt, ist sie wer anders</p>
+            <p>Lässt alles los, nur für das Gefühl</p>
+            <br>
+            <p>Dann geht sie barfuß in New York</p>
+            <p>Trampt alleine durch Alaska</p>
+            <p>Springt vor Bali über Board</p>
+            <p>Und taucht durch das blaue Wasser</p>
+            <br>
+            <p>Und wenn sie tanzt, ist sie woanders</p>
+            <p>Lässt alles los, nur für das Gefühl</p>
+            <br>
+            <p>Sie würde gerne mal auf 'n Date gehen</p>
+            <p>In ihrem Lieblingskleid  
+            <p>nicht nur vor dem Spiegel stehen</p>
+            <p>Aber ob sie sich das traut</p>
+            <p>Selbst wenn die Zeit es mal erlaubt</p>
+            <br>
+            <p>Sie fragt sich wie es gelaufen wäre</p>
+            <p>Ohne Kinder<p>
+            <p>Selber laufen lernen</p>
+            <p>Sie setzt die Kopfhörer auf</p>
+            <p>Macht die Musik ganz laut</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Und wenn sie tanzt, ist sie wo anders</p>
+            <p>Für den Moment, dort wo sie will</p>
+            <p>Und wenn sie tanzt, ist sie wer anders</p>
+            <p>Lässt alles los, nur für das Gefühl</p>
+            <br>
+            <p>Dann geht sie barfuß in New York</p>
+            <p>Trampt alleine durch Alaska</p>
+            <p>Springt vor Bali über Board</p>
+            <p>Und taucht durch das blaue Wasser</p>
+            <br>
+            <p>Und wenn sie tanzt, ist sie woanders</p>
+            <p>Lässt alles los, nur für das Gefühl</p>
+            <br>
+            <p>Und wenn sie tanzt, ist sie woanders</p>
+            <p>Ist sie woanders</p>
+            <br>
+            <p>Und wenn sie tanzt, ist sie wer anders </p>
+            <p>Ist sie wer anders</p>
+            <br>
+            <p>Dann geht sie barfuß in New York</p>
+            <p>Trampt alleine durch Alaska</p>
+            <p>Springt vor Bali über Board</p>
+            <p>Und taucht durch das blaue Wasser</p>
+            <br>
+            <p>Und wenn sie tanzt, ist sie woanders</p>
+            <p>Lässt alles los, nur für das Gefühl</p>
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Cuando ella baila</strong></h6>
+            <br>
+            <p>Otra semana normal de 50 horas</p>
+            <p>Llegar a casa,<p>
+            <p>Y primero cocinar para los pequeños</p>
+            <p>No es ningún problema para ella</p>
+            <p>Porque para ella los niños son su mayor prioridad</p>
+            <br>
+            
+            <p>Se pregunta cómo habría sido todo</p>
+            <p>Sin niños</p>
+            <p>Aprender a caminar sola</p>
+            <p>Pero su día no le permite descansar</p>
+            <p>Quiere soñar, cierra los ojos</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Por un momento, donde ella quiere estar </p>
+            <p>Y cuando ella baila, ella es otra persona</p>
+            <p>Lo deja ir todo, solo por esa sensación</p>
+            <br>
+            <p>Entonces ella camina descalza en Nueva York </p>
+            <p>Pide aventones sola por Alaska </p>
+            <p>Salta por la borda frente a Bali</p>
+            <p>Y bucea por el agua azul</p>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Lo deja ir todo, solo por esa sensación</p>
+            <br>
+            <p>Le gustaría tener una cita alguna vez</p>
+            <p>Llevar su vestido favorito</p>
+            <p>No solo cuando está frente al espejo</p>
+            <p>Pero se atrevería?</p>
+            <p>Aunque el tiempo se lo permitiera alguna vez?</p>
+            <br>
+            <p>Se pregunta cómo habría sido todo</p>
+            <p>Sin niños</p>
+            <p>Aprender a caminar sola</p>
+            <p>Se pone los audífonos</p>
+            <p>Pone la música muy fuerte</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Por un momento, donde ella quiere estar </p>
+            <p>Y cuando ella baila, ella es otra persona</p>
+            <p>Lo deja ir todo, solo por esa sensación</p>
+            <br>
+            <p>Entonces ella camina descalza en Nueva York </p>
+            <p>Pide aventones sola por Alaska </p>
+            <p>Salta por la borda frente a Bali</p>
+            <p>Y bucea por el agua azul</p>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Lo deja ir todo, solo por esa sensación</p>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Ella está en otro lugar</p>
+            <br>
+            <p>Y cuando ella baila, ella es otra persona</p>
+            <p>Ella es otra persona </p>
+            <br>
+            <p>Entonces ella camina descalza en Nueva York </p>
+            <p>Pide aventones sola por Alaska </p>
+            <p>Salta por la borda frente a Bali</p>
+            <p>Y bucea por el agua azul</p>
+            <br>
+            <p>Y cuando ella baila, ella está en otro lugar</p>
+            <p>Lo deja ir todo, solo por esa sensación</p>
+           </div>
+           
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>When she dances</strong></h6>
+            <br>
+            <p>Just a normal fifty hour week </p>
+            <p>Coming home,</p>
+            <p>And first cooking the food for the small ones</p>
+            <p>It is not a problem for her</p>
+            <p>Because the kids are her first priority </p>
+            <br>
+            <p>She asks herself how her life would have been</p>
+            <p>Without children</p>
+            <p>Learning how to walk by herself</p>
+            <p>But her day does not allow any break </p>
+            <p>She wants to dream, she closes her eyes</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>And when she dances, she is somewhere else</p>
+            <p>For the moment, she is where she wants to be</p>
+            <p>And when she dances, she is somebody else</p>
+            <p>She leaves everything, just for that feeling</p>
+            <br>
+            <p>So she walks barefooted in New York </p>
+            <p> Hitchhikes by herself through Alaska</p>
+            <p> Jumps over board in Bali </p>
+            <p> And dives across the blue waters </p>
+            <br>
+            <p> And when she dances, she is somewhere else </p>
+            <p> She leaves everything, just for that feeling </p>
+            <br>
+            <p> She would love to go out for a date</p>
+            <p>Wear in her favorite dress </p>
+            <p>not only in front of the mirror </p>
+            <p> But would she dare to do it ?</p>
+            <p> Even if her schedule would allow it for once? </p>
+            <br>
+            <p>She asks herself how her life would have been</p>
+            <p>Without children</p>
+            <p>Learning how to walk by herself</p>
+            <p>She puts up the headphones </p>
+            <p>Turns the music up loud </p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>And when she dances, she is somewhere else</p>
+            <p>For the moment, she is where she wants to be</p>
+            <p>And when she dances, she is somebody else</p>
+            <p>She leaves everything, just for that feeling</p>
+            <br>
+            <p>So she walks barefooted in New York </p>
+            <p> Hitchhikes by herself through Alaska</p>
+            <p> Jumps over board in Bali </p>
+            <p> And dives across the blue waters </p>
+            <br>
+            <p> And when she dances, she is somewhere else </p>
+            <p> She leaves everything, just for that feeling </p>
+            <br>
+            <p>And when she dances, she is somewhere else </p>
+            <p>She is somewhere else</p>
+            <br>
+            <p>And when she dances, she is somebody else</p>
+            <p>She is somebody else</p>
+            <br>
+            <p>So she walks barefooted in New York </p>
+            <p> Hitchhikes by herself through Alaska</p>
+            <p> Jumps over board in Bali </p>
+            <p> And dives acrosss the blue waters </p>
+            <br>
+            <p> And when she dances, she is somewhere else </p>
+            <p> She leaves everything, just for that feeling </p>
+
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial, Roboto;
+        margin: 0 auto;
+      }
+        body{
+            text-align: center;
+            font-family: arial, Roboto;
+            background: linear-gradient(to right,#c5c5c5, #f1f0f0);
+            letter-spacing: 0.8px;
+            margin: 0 auto;
+        }
+        p{
+          font-size: 16px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 18px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          height: 200px;
+        }
+        iframe{
+          margin: 0 auto;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(251, 171, 65);
+          border-radius: 50px;
+          color: black;
+        }
+          /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+  
+   <!--Navigation Bar/ Barra de navegación-->
+   <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+    <div class="container">
+    <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lieder
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Künstler
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Serien
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#serie">Series</a>
+            </div>
+          </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Kontakt
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </nav>
+</div>
+
+    <section>
+      <div class="content">
+    <h1>Teil von Mir</h1>
+    <h2>Von: / De: / By: Silbermond </h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" style="margin: 0 auto;" src="https://youtu.be/caLhUmNAOZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    <br><br>
+    <p style="font-size: 23px; color: black;">Offizielles Video / Video oficial / Official video : <a style="color: white; background: #a837e9; border:1px solid#a837e9;border-radius: 5px;padding: 4px;" href="https://youtu.be/ckKCBRxN2J0" target="_blank">Durch den Monsun</a></p>
+    <br><br>
+       <div class="container-song">
+
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Teil von Mir</strong></h6>
+            <br>
+            <p>Ich halt dich fest in meinen Gedanken</p>
+            <p>Ich lass sie nicht aus meinem Kopf</p>
+            <p>Denn dein Blick wird immer leiser</p>
+            <p>Doch ich spür' dich noch</p>
+            <br>
+            <p>Ich schließ' dich ein in meinen Gedanken</p>
+            <p>Jedes Wort und jede Tat</p>
+            <p>Halt dich fest wie eine Blume</p>
+            <p>Die nicht welken mag</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Dein Bild wird nie verblassen</p>
+            <p>Ich trag's für immer bei mir</p>
+            <p>Auch wenn's über die Jahre </p>
+            <p>An Farbe verliert</p>
+            <p>Bleibst du für immer</p>
+            <p>Ein Teil von mir</p>
+            <br><br>
+            <p>Ich hab dich fest in meinen Gedanken</p>
+            <p>Die Erinnerung an dich heb' ich auf</p>
+            <p>Dein Blick zum Himmel, den vergess' ich nie</p>
+            <p>Du warst so unbedingt stolz</p>
+            <p>Und dein Herz war aus Gold</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Dein Bild wird nie verblassen</p>
+            <p>Ich trag's für immer bei mir</p>
+            <p>Auch wenn's über die Jahre </p>
+            <p>An Farbe verliert</p>
+            <p>Bleibst du für immer</p>
+            <p>Ein Teil von mir</p>
+            <br><br>
+            <p>Bis zum letzten meiner Tage</p>
+            <p>Schlag ich dich mir nicht aus dem Sinn</p>
+            <p>Du bist wie eingebrannt</p>
+            <p>Weil ich nicht vergessen kann und will</p>
+            <br>
+            <p>Es bleibt dein Bild, ein Teil von mir</p>
+            <p>Ein Teil von Mir</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Dein Bild wird nie verblassen</p>
+            <p>Ich trag's für immer bei mir</p>
+            <p>Auch wenn's über die Jahre </p>
+            <p>An Farbe verliert</p>
+            <p>Bleibst du für immer</p>
+            <p>Ein Teil von mir</p>
+          
+           </div>
+
+           <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Parte de mí</strong></h6>
+            <br>
+            <p>Te tengo cerca en mis pensamientos</p>
+            <p>No voy a dejarte fuera de mi mente</p>
+            <p>Por que aunque tu imagen siempre se debilita</p>
+            <p>Todavía te siento</p>
+            <br>
+            <p>Te voy a guardar en mi pensamiento</p>
+            <p>Cada palabra, cada acto </p>
+            <p>Abrazarte fuerte como una flor </p>
+            <p>Que no quiere marchitarse</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tu imagen nunca se desvanecerá</p>
+            <p>Siempre la llevo conmigo</p>
+            <p>Incluso si a través de los años</p>
+            <p>Pierde el color</p>
+            <p>Serás siempre</p>
+            <p>Una parte de mi</p>
+            <br><br>
+            <p>Te tengo cerca en mis pensamientos</p>
+            <p>Te voy a mantener en mi memoria </p>
+            <p>Nunca olvidaré como mirabas el cielo </p>
+            <p>Estabas absolutamente orgulloso </p>
+            <p>Y tu corazón era de oro</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tu imagen nunca se desvanecerá</p>
+            <p>Siempre la llevo conmigo</p>
+            <p>Incluso si a través de los años</p>
+            <p>Pierde el color</p>
+            <p>Serás siempre</p>
+            <p>Una parte de mi</p>
+            <br><br>
+            <p>Hasta el último de mis días </p>
+            <p>Nunca te voy a sacar de mi mente </p>
+            <p>Es como si ardieras dentro </p>
+            <p>Por que no puedo ni quiero olvidarte </p>
+            <br>
+            <p>Es tu imagen, una parte de mí</p>
+            <p>Una parte de mí</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Tu imagen nunca se desvanecerá</p>
+            <p>Siempre la llevo conmigo</p>
+            <p>Incluso si a través de los años</p>
+            <p>Pierde el color</p>
+            <p>Serás siempre</p>
+            <p>Una parte de mi</p>
+            
+           </div>
+           
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Part of me</strong></h6>
+            <br>
+            <p> I have you close in my thoughts </p>
+            <p> I'm not going to let you out of my mind </p>
+            <p> Because though your image gets weaker </p>
+            <p> I still feel you </p>
+            <br>
+            <p> I'm going to keep you in my thoughts </p>
+            <p> Every word, every act </p>
+            <p> Hold you tight like a flower </p>
+            <p> That does not want to wither </p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> Your image will never fade </p>
+            <p> I bear it with me forever</p>
+            <p> Even if over the years </p>
+            <p> It loses color </p>
+            <p> You will always be </p>
+            <p> A part of me </p>
+            <br><br>
+            <p> I have you close in my thoughts </p>
+            <p> I'll keep you in my memory </p>
+            <p> I’ll never forget, your look to heaven</p>
+            <p> You were absolutely proud </p>
+            <p> And your heart was made of gold </p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> Your image will never fade </p>
+            <p> I bear it with me forever</p>
+            <p> Even if over the years </p>
+            <p> It loses color </p>
+            <p> You will always be </p>
+            <p> A part of me </p>
+            <br><br>
+            <p> Until the last of my days </p>
+            <p> I'm never going to get you off my mind </p>
+            <p> It's like you burn me </p>
+            <p> Because I can't and don't want to forget you </p>
+            <br>
+            <p>Your image remains, as a part of me</p>
+            <p>A part of me</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p> Your image will never fade </p>
+            <p> I bear it with me forever</p>
+            <p> Even if over the years </p>
+            <p> It loses color </p>
+            <p> You will always be </p>
+            <p> A part of me </p>
+
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

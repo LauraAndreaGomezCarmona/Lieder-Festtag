@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap" rel="stylesheet">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <style>
+      *{
+        font-family: Arial,sans-serif;
+      }
+        body{
+            text-align: center;
+            font-family: arial;
+            background: linear-gradient(to right, #fbd071, #fddf9d);
+            letter-spacing: 0.8px;
+        }
+        p{
+          font-size: 17px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        h6{
+          font-size: 17px;
+        }
+        mark{
+          border-radius: 6px;
+          padding: 8px 12px;
+        }
+        img{
+          height: 200px;
+        }
+        section{
+            position: relative;
+            width: 0 auto;
+            height: 180px;
+            display: flex;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 180px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin-top:0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 0 auto;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 0px;
+            margin-bottom:20px;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        section .content h2{
+          color:#fff;
+          margin-top: 0px;
+          margin-bottom: 80px;
+        }
+        .container-song{
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          margin-top: 40px;
+          margin-bottom: 50px;
+          width: 100%;
+        }
+        .container-song p:hover{
+          background:rgb(253, 250, 210);
+          border-radius: 50px;
+          color: black;
+        }
+         /*Navigation bar*/
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 90px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        }
+        .nav-item .dropdown :hover{
+          border-radius: 30px;
+          background:white;
+        }
+
+    .navbar{
+        background:linear-gradient(to right, #ffa5e9, #9ac0fd);
+        color:black;
+        width:0 auto;
+        margin: 0 auto;
+        font-size: 23px;
+        text-align: center;
+    }
+    .dropdown-menu{
+        background-color: white;
+        padding:2px;
+        color: black;
+        font-size: 17px;
+    }
+    .dropdown-menu :hover{
+      border-radius: 50px;
+    }
+    .navbar-brand{
+        font-size: 33px;
+        margin-left: 0px;
+        padding-left: 0;
+    }
+    .nav-item{
+      color: black;
+    }
+    .nav-item a:hover{
+      background:rgb(255, 255, 255);
+      border-radius:50px;
+      color:black;
+      padding: 4px 36px;
+    }
+    .dropdown-menu a:hover{
+      background:rgb(185, 185, 185);
+      color:black;
+    }
+    #fucsia{
+      background: rgb(224, 86, 201);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #morado{
+      background: rgb(174, 32, 199);
+      width: 65%;
+      padding-bottom: 0;
+    }
+    #azul{
+      background: rgb(75, 169, 246);
+      width: 65%;
+      padding-bottom: 0;
+
+    }
+
+
+    /* Responsive media queries*/
+    @media screen and (max-width: 1195px){
+      body{
+        letter-spacing: 0.5px;
+      }
+      .nav-item{
+        margin:0;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:black;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    @media screen and (max-width: 1004px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+      }
+      section .content h1{
+        font-size: 50px;
+      }
+      .navbar{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: 800px){
+      body{
+        letter-spacing: 0;
+      }
+      iframe{
+        width: 80%;
+        height: 400px;
+      }
+      .container-song{
+        display: block;
+      }
+      .song{
+        margin-top: 90px;
+        margin-bottom: 90px;
+        font-size: 21px;
+        }
+    }
+
+    @media screen and (max-width: 650px){
+      section .content h1{
+            margin-top:10px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 60px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 618px){
+      section .content h1{
+            font-size: 40px;
+        }
+      
+    }
+    </style>
+  </head>
+<body>
+    <!--Navigation Bar/ Barra de navegación-->
+    <nav style="color: black;" class="navbar navbar-expand-lg navbar-light bg-light navbar">
+      <div class="container">
+      <a class="navbar-brand" href="canciones.html">Lieder Festtag</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lieder
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#musica">Canciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#musica">Songs</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Künstler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="canciones.html#artist">Artistas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="canciones.html#artist">Artist</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Serien
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#serie">Series</a>
+              </div>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kontakt
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="canciones.html#contacto">Contacto</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="canciones.html#contacto">Contact</a>
+              </div>
+            </li>
+            
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <section>
+      <div class="content">
+    <h1>Pullover Wetter</h1>
+    <h2>Von: / De: / By: NENA </h2>
+      </div>
+    </section>
+    <br><br><br>
+    <p style="font-size: 22px;">Drücken Sie für eine bessere Erfahrung den Kinomodus des YouTube-Videos</p>
+    <hr id="fucsia">
+    <p style="font-size: 22px;">Para una mejor experiencia, presione el modo cine del video de YouTube</p>
+    <hr id="morado">
+    <p style="font-size: 22px;">For a better experience, press the cinema mode of the YouTube video</p>
+    <hr id="azul">
+    <br>
+    <img src="images/Modo-cine.PNG" alt="Imagen modo cine">
+    <br><br>
+    <iframe width="900" height="530" src="https://youtu.be/GCdwKhTtNNw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    <br><br><br>
+       <div class="container-song">
+         
+          <div class="song">
+            <h5><mark style="background: rgb(204, 60, 156); color: white;">TEXTE IN DEUTSCH</mark></h5>
+            <br><br>
+            <h6><strong>Pullover Wetter</strong></h6>
+            <br>
+            <p>Alles was ich bin ist ein Mann</p>
+            <p>Ich will die Welt in meinen Händen</p>
+            <p>Ich hasse den Strand</p>
+            <p>Aber ich stehe in Kalifornien 
+            <p> Mit meinen Zehen im Sand</p>
+            <br>
+            <p>Benutze die Ärmel an meinem Pullover</p>
+            <p>Dann lass uns haben, ein Abenteuer</p>
+            <br>
+            <p>Kopf im Wolken</p>
+            <p>Aber meine Schwerkraft ist gefestigt</p>
+            <br>
+            <p>Berühre meinen Hals und ich berühre deinen</p>
+            <p>Du in diesen hochtaillierten Shorts, oh</p>
+            <br>
+            <p>Sie weiß worüber ich nachdenke</p>
+            <p>Und worüber ich nachdenke ist</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Eine Liebe, zwei Münder</p>
+            <p>Eine Liebe, ein Haus</p>
+            <p>Keine Shirts, keine Bluse</p>
+            <p>Nur uns, du findest es heraus</p>
+            <p>Nichts, was dir nichts über erzählen möchte
+            <p>Nein</p>
+            <br>
+            <p>Weil es zu kalt ist</p>
+            <p>Für dich hier</p>
+            <p>Und jetzt lass mich</p>
+            <p>Halte deine Hände</p>
+            <p>In die Löchern meines Pullovers</p>
+            <br><br>
+            <p>Und dürfte ich nur deinen Atmen rauben</p>
+            <p>Es ist mir egal, ob es nicht viel zu sagen gibt</p>
+            <p>Manchmal leitet die Stille deine Gedanken</p>
+            <p>Also zieh an einen Ort so weit weg</p>
+            <br>
+            <p>Die Gänsehaut fängt an</p>
+            <p>Die Minute in dem meine linke Hand</p>
+            <p>Deine Hüfte Berühre</p>
+            <p>Und dann habe ich dein Gesicht gesehen</p>
+            <p>Meinen Finger auf deine Zunge gelegt</p>
+            <p>Weil du es magst zu schmecken, ja</p>
+            <br>
+            <p>Diese Herzen lieben</p>
+            <p>Jeden für den unsere Herzen schlagen</p>
+            <p>Innerhalb dieses Orts ist es warm</p>
+            <p>Draußen fängt es an zu schütten</p>
+            <br>
+            <p>Herunterkommend</p>
+            <br><br>
+            <h5><strong>DER REFRAIN:</strong></h5>
+            <br>
+            <p>Eine Liebe, zwei Münder</p>
+            <p>Eine Liebe, ein Haus</p>
+            <p>Keine Shirts, keine Bluse</p>
+            <p>Nur uns, du findest es heraus</p>
+            <p>Nichts, was dir nichts über erzählen möchte
+            <p>Nein, nein</p>
+            <br>
+            <p>Weil es zu kalt ist</p>
+            <p>Für dich hier</p>
+            <p>Und jetzt lass mich</p>
+            <p>Halte deine Hände</p>
+            <p>In die Löchern meines Pullovers</p>
+            <br><br>
+            <p>Weil es zu kalt ist</p>
+            <p>Für dich hier</p>
+            <p>Und jetzt lass mich</p>
+            <p>Halte deine Hände</p>
+            <p>In die Löchern meines Pullovers</p>
+            <br><br>
+            <p>Whoa, whoa</p>
+            <p>Whoa, whoa, whoa</p>
+            <p>Whoa, whoa</p>
+            <br><br>
+            <p>Weil es zu kalt ist</p>
+            <p>Für dich hier</p>
+            <p>Und jetzt lass mich</p>
+            <p>Halte deine Hände</p>
+            <p>In die Löchern meines Pullovers</p>
+            <br><br>
+            <p>Es ist zu kalt</p>
+            <p>Für dich hier</p>
+            <p>Und jetzt lass mich</p>
+            <p>Halte deine Hände</p>
+            <p>In die Löchern meines Pullovers</p>
+            <br><br>
+            <p>Es ist zu kalt</p>
+            <p>Es ist zu kalt</p>
+            <p>Die Löcher meines Pullovers</p>
+
+            </div>
+
+            <div class="song">
+            <h5 ><mark style="background: rgb(170, 60, 204); color: white;">LETRA EN ESPAÑOL</mark></h5>
+            <br><br>
+            <h6><strong>Clima de suéter</strong></h6>
+            <br>
+            <p>Todo lo que soy es un hombre</p>
+            <p>Quiero el mundo en mis manos</p>
+            <p>Odio la playa</p>
+            <p>Pero estoy en California</p>
+            <p>Con los pies en la arena</p>
+            <br>
+            <p>Usa las mangas de mi suéter</p>
+            <p>Vamos a tener una aventura</p>
+            <br>
+            <p>La cabeza en las nubes</p>
+            <p>Pero mi centro de gravedad centrado</p>
+            <br>
+            <p>Toca mi cuello y yo tocare el tuyo</p>
+            <p>Tú con esos pequeños shorts </p>
+            <br>
+            <p>Ella sabe lo que estoy pensando</p>
+            <p>y lo que estoy pensando</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Un amor, dos bocas</p>
+            <p>Un amor, una casa</p>
+            <p>Sin camisa, sin blusa</p>
+            <p>Solo nosotros, ya lo veras</p>
+            <p>Nada de lo que no quisiera contarte
+            <p>No</p>
+            <br>
+            <p>Porque hace demasiado frío</p>
+            <p>Aquí para ti</p>
+            <p>Entonces ahora dejame</p>
+            <p>Poner tus dos manos</p>
+            <p> En los agujeros de mi suéter</p>
+            <br><br>
+            <p>Y si pudiera dejarte sin aliento</p>
+            <p>No me importa si no hay mucho que decir</p>
+            <p>A veces el silencio guía nuestras mentes</p>
+            <p>Así que muévete a un lugar lejano</p>
+            <br>
+            <p> La piel de gallina comienza a subir</p>
+            <p> En el momento en que mi mano izquierda 
+            <p> Se encuentra con tu cintura</p>
+            <p> Y luego miro tu cara</p>
+            <p> Pon mi dedo en tu lengua</p>
+            <p> Porque te encanta el sabor, sí</p>
+            <br>
+            <p> Estos corazones adoran</p>
+            <p> Todos por quienes nuestro corazón late</p>
+            <p> Aquí adentro hace calor</p>
+            <p> Afuera comienza a llover</p>
+            <br>
+            <p>Bajando</p>
+            <br><br>
+            <h5><strong>CORO:</strong></h5>
+            <br>
+            <p>Un amor, dos bocas</p>
+            <p>Un amor, una casa</p>
+            <p>Sin camisa, sin blusa</p>
+            <p>Solo nosotros, ya lo veras</p>
+            <p>Nada de lo que no quisiera contarte</p>
+            <p>no, no</p>
+            <br>
+            <p>Porque hace demasiado frío</p>
+            <p>Aquí para ti</p>
+            <p>Entonces ahora dejame</p>
+            <p>Poner tus dos manos</p>
+            <p> En los agujeros de mi suéter</p>
+            <br><br>
+            <p>Porque hace demasiado frío</p>
+            <p>Aquí para ti</p>
+            <p>Entonces ahora dejame</p>
+            <p>Poner tus dos manos</p>
+            <p> En los agujeros de mi suéter</p>
+            <br><br>
+            <p>Whoa, whoa</p>
+            <p>Whoa, whoa, whoa</p>
+            <p>Whoa, whoa</p>
+            <br><br>
+            <p>Porque hace demasiado frío</p>
+            <p>Aquí para ti</p>
+            <p>Entonces ahora dejame</p>
+            <p>Poner tus dos manos</p>
+            <p>En los agujeros de mi suéter</p>
+            <br><br>
+            <p>Hace demasiado frío</p>
+            <p>Aquí para ti</p>
+            <p>Entonces ahora dejame</p>
+            <p>Poner tus dos manos en</p>
+            <p>Los agujeros de mi suéter</p>
+            <br><br>
+            <p>Hace demasiado frío</p>
+            <p>Hace demasiado frío</p>
+            <p>Los agujeros de mi suéter</p>
+             
+           </div>
+           <div class="song">
+            <h5><mark style="background: rgb(43, 154, 219); color: white;">LYRICS IN ENGLISH</mark></h5>
+            <br><br>
+            <h6><strong>Sweater weather</strong></h6>
+            <br>
+            <p>All I am is a man</p>
+            <p>I want the world in my hands</p>
+            <p>I hate the beach</p>
+            <p>But I stand in California</p>
+            <p>With my toes in the sand</p>
+            <br>
+            <p>Use the sleeves of my sweater</p>
+            <p>Let's have an adventure</p>
+            <br>
+            <p>Head in the clouds</p>
+            <p>But my gravity's centered</p>
+            <br>
+            <p>Touch my neck and I'll touch yours</p>
+            <p>You in those little high waisted shorts, oh</p>
+            <br>
+            <p>She knows what I think about</p>
+            <p>And what I think about</p>
+            
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>One love, two mouths</p>
+            <p>One love, one house</p>
+            <p>No shirt, no blouse</p>
+            <p>Just us, you find out</p>
+            <p>Nothing that wouldn't wanna tell you about
+            <p>No</p>
+            <br>
+            <p>Cause it's too cold</p>
+            <p>For you here</p>
+            <p>And now so let me</p>
+            <p>Hold both your hands</p> 
+            <p>In the holes of my sweater</p>
+            <br><br>
+            <p>And if I may just take your breath away</p>
+            <p>I don't mind if there's not much to say</p>
+            <p>Sometimes the silence guides our minds</p>
+            <p>So move to a place so far away</p>
+            <br>
+            <p>The goosebumps start to raise</p>
+            <p>The minute that my left hand</p>
+            <p>Meets your waist</p>
+            <p>And then I watch your face</p>
+            <p>Put my finger on your tongue</p>
+            <p>Cause you love the taste, yeah</p>
+            <br>
+            <p>These hearts adore</p>
+            <p>Everyone the other beats hardest for</p>
+            <p>Inside this place is warm</p>
+            <p>Outside it starts to pour</p>
+            <br>
+            <p>Coming down</p>
+            <br><br>
+            <h5><strong>CHORUS:</strong></h5>
+            <br>
+            <p>One love, two mouths</p>
+            <p>One love, one house</p>
+            <p>No shirt, no blouse</p>
+            <p>Just us, you find out</p>
+            <p>Nothing that wouldn't wanna tell you about</p>
+            <p>No, no</p>
+            <br>
+            <p>Cause it's too cold</p>
+            <p>For you here</p>
+            <p>And now so let me</p>
+            <p>Hold both your hands</p> 
+            <p>In the holes of my sweater</p>
+            <br><br>
+            <p>Cause it's too cold</p>
+            <p>For you here</p>
+            <p>And now so let me</p>
+            <p>Hold both your hands</p> 
+            <p>In the holes of my sweater</p>
+            <br><br>
+            <p>Whoa, whoa</p>
+            <p>Whoa, whoa, whoa</p>
+            <p>Whoa, whoa</p>
+            <br><br>
+            <p>Cause it's too cold</p>
+            <p>For you here</p>
+            <p>And now so let me</p>
+            <p>Hold both your hands</p> 
+            <p>In the holes of my sweater</p>
+            <br><br>
+            <p>It's too cold</p>
+            <p>For you here</p>
+            <p>And now so let me</p>
+            <p>Hold both your hands</p> 
+            <p>In the holes of my sweater</p>
+            <br><br>
+            <p>It's too cold,</p>
+            <p>It's too cold</p>
+            <p>The holes of my sweater</p>
+           
+           </div>
+
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</body>
+</html>

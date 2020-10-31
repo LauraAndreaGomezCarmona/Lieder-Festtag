@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieder Festtag!</title>
+    <link rel="short cut icon" href="images/microphone.PNG">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway');
+    
+        body {
+            margin: 0 auto;
+            padding: 0 auto;
+            font-family: arial,Roboto;
+            text-align:center;
+            color:black;
+            align-items: center;
+            letter-spacing: 0.9;
+            justify-content: center;
+            width: 100%;
+        }
+        section{
+            position: relative;
+            width: 100%;
+            height: 210px;
+            display: flex;
+            overflow: hidden;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 210px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 100%;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 50px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 65px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+        }
+        p{
+            text-align: justify;
+            font-size: 17px;
+        }
+        h2{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        h3{
+            font-size: 20px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        button{
+            border-radius: 50px;
+            height: 40px;
+            width:150px;
+            border: none;
+            outline: none;
+            background:#1d2671;
+            color:#fff;
+            letter-spacing: 1px;
+            cursor: pointer;
+            outline: none;
+        }
+        button:first-child:hover{
+            background: linear-gradient(90deg,rgb(144, 42, 144),rgb(65, 168, 251),#c33764);
+            background-size: 400%;
+        }
+        button:first-child:before{
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50px;
+            filter: blur(20px);
+            opacity: 0;
+        }
+        button:first-child:hover:before{
+            opacity: 1;
+        }
+        button:hover{
+            animation: glow 7s linear infinite;
+            transition: 0.4s;
+            font-size: 18px;
+        }
+        button:active{
+            outline:white;
+            border:none;
+            border-radius: 50px;
+        }
+        @keyframes glow{
+            100%{
+                background-position: 400%;
+            }
+        }
+
+        mark{
+            background-color:rgb(221, 112, 145);
+            color:black;
+            border: 1px solid white;
+            
+        }
+        .blue{
+            background-color: rgb(157, 87, 185);
+            color: black;
+            border:1px solid white;
+        }
+        .purple{
+            background-color:rgb(66, 138, 233);
+            border: 1px solid white;
+        }
+        .diseño{
+            text-align: center;
+            border-right: 5px solid black;
+            border-radius: 5px;
+            /*box-shadow: 4px 0 4px lightgray;*/
+            height: 0 auto;
+            width: 0 auto;
+            margin-bottom: 0;
+            padding-right: 24px;
+            padding-left: 12px;
+            margin-left: 10px;
+            margin-right: 12px;
+            margin-top: 0;
+        }
+        .container{
+            display:inline-flex;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .center{
+            text-align: center;
+        }
+        
+        img{
+            width: 400px;
+            height: 300px;
+            margin-top: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        .central{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        @media screen and (max-width: 993px){
+            .container{
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .diseño{
+                border-bottom: 2px solid lightgray;
+                padding-bottom: 20px;
+                font-size: 22px;
+                margin: 50px auto;
+            }
+            section{
+            position: relative;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            overflow: hidden;
+            margin: 0;
+        }
+        section:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 220px;
+            background:linear-gradient(to right, #d44d78, #1d5bbe);
+            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+            margin: 0;
+        }
+        section .content{
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            max-width: 100%;
+            text-align: center;
+        }
+        section .content h1{
+            margin-top: 50px;
+            margin-bottom:0;
+            padding: 0;
+            font-size: 59px;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            color:#fff;
+            letter-spacing: 1px;
+            margin: 0;
+            width: 100%;
+        }
+        .content{
+            margin: 0;
+            width: 100%;
+        }
+
+        }
+        @media screen and (max-width: 690px){
+            .container{
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .diseño{
+                border-bottom: 2px solid lightgray;
+                padding-bottom: 20px;
+                font-size: 22px;
+                margin: 50px auto;
+            }
+            img{
+            width: 190px;
+            height: 200px;
+            margin-top: 0;
+            justify-content: center;
+            align-items: center;
+        }
+            
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="content">
+    <h1><strong>Lieder Festtag</strong></h1>
+        </div>
+    </section>
+    <img src="images/undraw_hey.png" alt="World">
+    <div class="container">
+    <div class="diseño">
+        <h2><strong>DEUTSCH</strong></h2>
+        <br>
+        <h3><strong>Willkommen</strong></h3>
+        <p><strong>Lieder Festtag</strong> ist eine Website, auf der Sie drei Sprachen gleichzeitig 
+            lernen und üben können: <strong>Deutsch, Spanisch und Englisch</strong>.
+        Und der beste Weg eine Sprache zu lernen ist <strong><mark>¡ durch Musik, Serien, Filme und Spiele !</mark></strong></p>
+        <br>
+        <a href="canciones.html"><button><strong>WEITER</strong></button></a>
+    </div>
+   
+
+    <div class="diseño">
+        <h2><strong>ESPAÑOL</strong></h2>
+        <br>
+        <h3><strong>Bienvenid@</strong></h3>
+        <p><strong>Lieder Festtag,</strong> en español <strong>"Fiesta de canciones"</strong> es una página web
+        que te permitirá aprender y practicar tres idiomas: <strong>Alemán, Español e Inglés</strong>
+        al mismo tiempo, y la mejor manera de aprender un idioma es,
+        <strong><mark class="blue">¡ a través de música, series, películas y juegos !</mark></strong></p>
+        <br>
+        <a href="canciones.html"><button><strong>CONTINUAR</strong></button></a>
+    </div>
+   
+    
+    <div class="diseño">
+        <h2><strong>ENGLISH</strong></h2>
+        <br>
+        <h3><strong>Welcome</strong></h3>
+        <p><strong>Lieder Festtag, </strong> in english <strong>"Songs feast day"</strong> is a webpage
+        that will allow you to learn and practice three languages: <strong>German, Spanish and English</strong>
+        at the same time, and the best way you can learn a language
+        <strong><mark class="purple">¡ through music, series, movies and games !</mark></strong></p>
+        <br>
+        <a href="canciones.html"><button><strong>CONTINUE</strong></button></a>
+      </div>
+   </div>
+   <div class="central">
+   <img src="images/undraw_Around_the_world.png" alt="World">
+   <img src="images/undraw_compose_musicIcon.png" alt="Music">
+   </div>
+   <br>
+</body>
+</html>
